@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="App.API/App.API.csproj" />
+  <Project Path="App.Database/App.Database.csproj" />
+  <Project Path="App.UI/App.UI.csproj" />
+  <Project Path="App.Validation/App.Validation.csproj" Id="3db87482-c7dc-40df-aa5b-46802fecc57e" />
+</Solution>

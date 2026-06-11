@@ -1,0 +1,195 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "App.Database/1.0.0": {
+        "dependencies": {
+          "App.Validation": "1.0.0",
+          "BCrypt.Net-Next": "4.2.0",
+          "Dapper": "2.1.79",
+          "Dapper.FluentMap": "2.0.0",
+          "Microsoft.Extensions.Configuration": "10.0.8",
+          "Npgsql": "10.0.3"
+        },
+        "runtime": {
+          "App.Database.dll": {}
+        }
+      },
+      "BCrypt.Net-Next/4.2.0": {
+        "runtime": {
+          "lib/net10.0/BCrypt-Net-Next.dll": {
+            "assemblyVersion": "4.2.0.0",
+            "fileVersion": "4.2.0.0"
+          }
+        }
+      },
+      "Dapper/2.1.79": {
+        "runtime": {
+          "lib/net10.0/Dapper.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.1.79.29349"
+          }
+        }
+      },
+      "Dapper.FluentMap/2.0.0": {
+        "dependencies": {
+          "Dapper": "2.1.79"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Dapper.FluentMap.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.0.0"
+          }
+        }
+      },
+      "Microsoft.Extensions.Configuration/10.0.8": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "10.0.8",
+          "Microsoft.Extensions.Primitives": "10.0.8"
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.Extensions.Configuration.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.826.23019"
+          }
+        }
+      },
+      "Microsoft.Extensions.Configuration.Abstractions/10.0.8": {
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "10.0.8"
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.Extensions.Configuration.Abstractions.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.826.23019"
+          }
+        }
+      },
+      "Microsoft.Extensions.DependencyInjection.Abstractions/10.0.0": {
+        "runtime": {
+          "lib/net10.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.25.52411"
+          }
+        }
+      },
+      "Microsoft.Extensions.Logging.Abstractions/10.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "10.0.0"
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.Extensions.Logging.Abstractions.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.25.52411"
+          }
+        }
+      },
+      "Microsoft.Extensions.Primitives/10.0.8": {
+        "runtime": {
+          "lib/net10.0/Microsoft.Extensions.Primitives.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.826.23019"
+          }
+        }
+      },
+      "Npgsql/10.0.3": {
+        "dependencies": {
+          "Microsoft.Extensions.Logging.Abstractions": "10.0.0"
+        },
+        "runtime": {
+          "lib/net10.0/Npgsql.dll": {
+            "assemblyVersion": "10.0.3.0",
+            "fileVersion": "10.0.3.0"
+          }
+        }
+      },
+      "App.Validation/1.0.0": {
+        "runtime": {
+          "App.Validation.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "App.Database/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BCrypt.Net-Next/4.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-gwLD2KfCuwQesP17aVh4h6lpiMPEVt5Lbpndo0ej903hNUUTtyxt3ARdDjmuydBRTAUICc7OVKVbaOvc6SQYXA==",
+      "path": "bcrypt.net-next/4.2.0",
+      "hashPath": "bcrypt.net-next.4.2.0.nupkg.sha512"
+    },
+    "Dapper/2.1.79": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-8YijbzgTfmqmQOnVNorYM6K++pxqnW3nJ4aC1sRHzxUA2CcuoJ9gsTem3kgBnPRMc38zZHl4Esb6hAezXIEEuw==",
+      "path": "dapper/2.1.79",
+      "hashPath": "dapper.2.1.79.nupkg.sha512"
+    },
+    "Dapper.FluentMap/2.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-UFSBuYreRQqOQfzSJ2HOnLvBolg5VFfBjS30ohM8DT4Yra/m+bEKAjVTmCBM1VDahWsPSsKqjX5eLR37MB/O+Q==",
+      "path": "dapper.fluentmap/2.0.0",
+      "hashPath": "dapper.fluentmap.2.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Configuration/10.0.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ehZcoPbjzWzS4XFvuz7R3V55SmpdkyMqFURLH3yXaN9NtXd9tR6CGB7pd49HYtCkenl+G7ctXSFLhNI08xLfRg==",
+      "path": "microsoft.extensions.configuration/10.0.8",
+      "hashPath": "microsoft.extensions.configuration.10.0.8.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Configuration.Abstractions/10.0.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-I63esIFbL3h5pSt7gXpXOlmcwDmYBUoYNEglKfDPFUqtYvSV84f2l28hO2lfVXsV0wdlplgAM7IVz16matapSg==",
+      "path": "microsoft.extensions.configuration.abstractions/10.0.8",
+      "hashPath": "microsoft.extensions.configuration.abstractions.10.0.8.nupkg.sha512"
+    },
+    "Microsoft.Extensions.DependencyInjection.Abstractions/10.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-L3AdmZ1WOK4XXT5YFPEwyt0ep6l8lGIPs7F5OOBZc77Zqeo01Of7XXICy47628sdVl0v/owxYJTe86DTgFwKCA==",
+      "path": "microsoft.extensions.dependencyinjection.abstractions/10.0.0",
+      "hashPath": "microsoft.extensions.dependencyinjection.abstractions.10.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Logging.Abstractions/10.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-FU/IfjDfwaMuKr414SSQNTIti/69bHEMb+QKrskRb26oVqpx3lNFXMjs/RC9ZUuhBhcwDM2BwOgoMw+PZ+beqQ==",
+      "path": "microsoft.extensions.logging.abstractions/10.0.0",
+      "hashPath": "microsoft.extensions.logging.abstractions.10.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Primitives/10.0.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-OBPo4nYhMyIbtueoC10CBm6AGAbo/A9IV8QQ/6ryZS7VvmqpGT7hunazeHLxFawRzn3oLOq4jhqhpBX4tfswWQ==",
+      "path": "microsoft.extensions.primitives/10.0.8",
+      "hashPath": "microsoft.extensions.primitives.10.0.8.nupkg.sha512"
+    },
+    "Npgsql/10.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7nb5YzXuvWWJxB0J8DiyL3we+X4FOctZrt0fIBnucOIaIevFEEwGQVZKtiu9olXdlNAK1eNgqSral6r/jlhI4w==",
+      "path": "npgsql/10.0.3",
+      "hashPath": "npgsql.10.0.3.nupkg.sha512"
+    },
+    "App.Validation/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

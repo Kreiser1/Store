@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net10.0-windows</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<UseWPF>true</UseWPF>
+		<UseVisualBasic>true</UseVisualBasic>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Remove="Placeholder.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Resource Include="Placeholder.png">
+			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
+		</Resource>
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\App.API\App.API.csproj" />
+		<ProjectReference Include="..\App.Validation\App.Validation.csproj" />
+	</ItemGroup>
+
+</Project>

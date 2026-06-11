@@ -1,0 +1,96 @@
+﻿<Window
+	x:Class="App.UI.ProfileEditor"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:local="clr-namespace:App.UI"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	Title="Редактирование профиля"
+	Width="400"
+	Height="550"
+	Closing="Window_CancelClosing"
+	ResizeMode="NoResize"
+	ShowInTaskbar="False"
+	Topmost="True"
+	WindowStartupLocation="CenterOwner"
+	mc:Ignorable="d">
+
+	<Grid>
+		<StackPanel
+			Width="280"
+			HorizontalAlignment="Center"
+			VerticalAlignment="Center">
+
+			<TextBlock
+				Margin="0,0,0,20"
+				HorizontalAlignment="Center"
+				FontSize="22"
+				FontWeight="SemiBold"
+				Text="Проифль"
+				TextAlignment="Center"
+				TextWrapping="Wrap" />
+
+			<TextBlock
+				Margin="0,0,0,3"
+				FontSize="14"
+				Foreground="#666666"
+				Text="Логин *" />
+			<TextBox
+				Name="LoginTextBox"
+				Height="32"
+				Margin="0,0,0,5"
+				Padding="5,0"
+				VerticalContentAlignment="Center"
+				MaxLength="50" />
+
+			<TextBlock
+				Margin="0,0,0,3"
+				FontSize="14"
+				Foreground="#666666"
+				Text="Старый пароль *" />
+			<PasswordBox
+				Name="OldPasswordTextBox"
+				Height="32"
+				Margin="0,0,0,5"
+				Padding="5,0"
+				VerticalContentAlignment="Center" />
+
+			<TextBlock
+				Margin="0,0,0,3"
+				FontSize="14"
+				Foreground="#666666"
+				Text="Новый пароль" />
+			<PasswordBox
+				Name="NewPasswordTextBox"
+				Height="32"
+				Margin="0,0,0,5"
+				Padding="5,0"
+				VerticalContentAlignment="Center" />
+
+			<TextBlock
+				Margin="0,0,0,3"
+				FontSize="14"
+				Foreground="#666666"
+				Text="Имя" />
+			<TextBox
+				Name="NameTextBox"
+				Height="32"
+				Margin="0,0,0,20"
+				Padding="5,0"
+				VerticalContentAlignment="Center"
+				MaxLength="100" />
+
+			<Button
+				Name="ConfirmButton"
+				Height="36"
+				Background="#007ACC"
+				BorderThickness="0"
+				Click="ConfirmButton_Click"
+				Content="Применить"
+				Cursor="Hand"
+				FontSize="14"
+				FontWeight="SemiBold"
+				Foreground="White" />
+		</StackPanel>
+	</Grid>
+</Window>

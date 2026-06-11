@@ -1,0 +1,15 @@
+D:\Indev\App\App.Database\bin\Debug\net10.0\App.Database.deps.json
+D:\Indev\App\App.Database\bin\Debug\net10.0\App.Database.dll
+D:\Indev\App\App.Database\bin\Debug\net10.0\App.Database.pdb
+D:\Indev\App\App.Database\obj\Debug\net10.0\App.Database.csproj.AssemblyReference.cache
+D:\Indev\App\App.Database\obj\Debug\net10.0\App.Database.GeneratedMSBuildEditorConfig.editorconfig
+D:\Indev\App\App.Database\obj\Debug\net10.0\App.Database.AssemblyInfoInputs.cache
+D:\Indev\App\App.Database\obj\Debug\net10.0\App.Database.AssemblyInfo.cs
+D:\Indev\App\App.Database\obj\Debug\net10.0\App.Database.csproj.CoreCompileInputs.cache
+D:\Indev\App\App.Database\obj\Debug\net10.0\App.Database.dll
+D:\Indev\App\App.Database\obj\Debug\net10.0\refint\App.Database.dll
+D:\Indev\App\App.Database\obj\Debug\net10.0\App.Database.pdb
+D:\Indev\App\App.Database\obj\Debug\net10.0\ref\App.Database.dll
+D:\Indev\App\App.Database\bin\Debug\net10.0\App.Validation.dll
+D:\Indev\App\App.Database\bin\Debug\net10.0\App.Validation.pdb
+D:\Indev\App\App.Database\obj\Debug\net10.0\App.Data.521E6F1D.Up2Date

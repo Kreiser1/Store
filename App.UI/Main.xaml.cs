@@ -1,0 +1,192 @@
+﻿using System.IO;
+using System.Net.Http;
+using System.Net.Http.Json;
+using System.Text;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+using App.API.Schema;
+using App.Database.Models;
+
+using Microsoft.VisualBasic;
+
+namespace App.UI;
+
+public record Product : ProductResponse {
+
+	public Product(int Id, string Name, int Count, int Price, string? Unit, byte[]? Image, string? Description, string? Manufacturer, string? Provider, float? Discount, CategoryResponse[]? Categories) : base(Id, Name, Count, Price, Unit, Image ?? Catalogue.Placeholder, Description, Manufacturer, Provider, Discount, Categories) {}
+
+	public virtual bool Equals(Product? other) => other is not null && Id == other.Id;
+
+	public override int GetHashCode() => Id.GetHashCode();
+
+	public int RealPrice => Discount is not null ? (int)MathF.Round(Price - Price * (Discount.Value / 100f)) : Price;
+};
+
+public static class Catalogue {
+	public static readonly byte[] Placeholder;
+
+	static Catalogue() {
+		Uri resource = new Uri("pack://application:,,,/Placeholder.png", UriKind.RelativeOrAbsolute);
+
+		var streamInfo = Application.GetResourceStream(resource);
+
+		if (streamInfo is null)
+			Placeholder = [];
+
+		using MemoryStream ms = new MemoryStream();
+
+		streamInfo.Stream.CopyTo(ms);
+		Placeholder = ms.ToArray();
+	}
+
+	public static Product[]? Products { get; private set; }
+
+	internal static async Task<Product[]?> load() {
+		Products = null;
+
+		try {
+			var response = await App_.API.GetAsync("products");
+
+			if (response.IsSuccessStatusCode) {
+				Products = await response.Content.ReadFromJsonAsync<Product[]>();
+
+				if (Products is null)
+					MessageBox.Show("Получены некорректные данные каталога.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+			} else
+				MessageBox.Show("Не удалось загрузить каталог.", response.StatusCode.ToString(), MessageBoxButton.OK, MessageBoxImage.Hand);
+		} catch (HttpRequestException) {
+			MessageBox.Show("Не удалось подключиться к серверу.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+		}
+
+		return Products;
+	}
+
+	internal static async Task<Product[]?> search(string? query = null) {
+		if (query is null || query.IsWhiteSpace())
+			return await load();
+
+		Products = null;
+
+		try {
+			var request = new ProductQueryRequest(
+				Name: query, Description: query,
+				Manufacturer: query, Provider: query);
+
+			var response = await App_.API.PostAsJsonAsync("products/query", request);
+
+			if (response.IsSuccessStatusCode) {
+				Products = await response.Content.ReadFromJsonAsync<Product[]>();
+
+				if (Products is null)
+					MessageBox.Show("Получены некорректные данные каталога.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+			} else
+				MessageBox.Show("Не удалось загрузить каталог.", response.StatusCode.ToString(), MessageBoxButton.OK, MessageBoxImage.Hand);
+		} catch (HttpRequestException) {
+			MessageBox.Show("Не удалось подключиться к серверу.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+		}
+
+		return Products;
+	}
+}
+
+public partial class Main : Window {
+	private ProfileEditor profileEditor = new();
+	private Cart cart = new();
+
+	public Main() {
+		InitializeComponent();
+
+		profileEditor.IsVisibleChanged += async (s, e) => { if (!(bool)e.NewValue) UsernameTextBox.Text = Profile.Name ?? "..."; };
+	}
+
+	protected override void OnClosed(EventArgs e) {
+		base.OnClosed(e);
+
+		profileEditor.Closing -= profileEditor.Window_CancelClosing;
+		profileEditor.Close();
+
+		cart.Closing -= cart.Window_CancelClosing;
+		cart.Close();
+	}
+
+	private async void Window_Loaded(object sender, RoutedEventArgs e) {
+		UsernameTextBox.Text = Profile.Name ?? "Гость";
+
+		if (Profile.Id is null)
+			EditProfileButton.Visibility = Visibility.Collapsed;
+
+		if (new[] { Role.Admin, Role.Manager }.Contains(Profile.Role)) {
+			RefreshButton.Visibility = Visibility.Collapsed;
+		} else {
+			AddButton.Visibility = Visibility.Collapsed;
+			SearchTextBox.Visibility = Visibility.Collapsed;
+		}
+
+		CatalogueListBox.ItemsSource = await Catalogue.load();
+	}
+
+	private void AddToCartButton_Click(object sender, RoutedEventArgs e) {
+		if (sender is Button button)
+			if (button.DataContext is Product product) {
+				if (Profile.Id is null) {
+					new Login().Show();
+					Close();
+					return;
+				}
+
+				int count;
+
+				if (!int.TryParse(Interaction.InputBox("Введите количество продуктов:", "Добавление в корзину"), out count) || count <= 0) {
+					MessageBox.Show("Введено неверное количество продуктов.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Hand);
+					return;
+				}
+
+				Product cartProduct = product with { Count = count };
+
+				if (!Cart.Products.Add(cartProduct))
+					MessageBox.Show("Продукт уже есть в корзине.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Hand);
+			}
+	}
+
+	private void EditProfileButton_Click(object sender, RoutedEventArgs e) {
+		profileEditor.Show();
+	}
+
+	private void CartButton_Click(object sender, RoutedEventArgs e) {
+		if (Profile.Id is null) {
+			new Login().Show();
+			Close();
+			return;
+		}
+
+		cart.Show();
+	}
+
+	private async void RefreshButton_Click(object sender, RoutedEventArgs e) {
+		if (!RefreshButton.IsEnabled)
+			return;
+
+		RefreshButton.IsEnabled = false;
+
+		CatalogueListBox.ItemsSource = await Catalogue.load();
+
+		RefreshButton.IsEnabled = true;
+	}
+
+	private void AddButton_Click(object sender, RoutedEventArgs e) {
+
+	}
+
+	private async void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e) {
+		if (SearchTextBox.Text.IsWhiteSpace() || SearchTextBox.Text.Length >= 3)
+			CatalogueListBox.ItemsSource = await Catalogue.search(SearchTextBox.Text);
+	}
+}
