@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "14jYCOkY6oU=",
+  "dgSpecHash": "+u/nlMsKLZw=",
   "success": true,
-  "projectFilePath": "D:\\Indev\\App\\App.UI\\App.UI.csproj",
+  "projectFilePath": "E:\\Indev\\Store\\App.UI\\App.UI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Kreiser\\.nuget\\packages\\bcrypt.net-next\\4.2.0\\bcrypt.net-next.4.2.0.nupkg.sha512",
     "C:\\Users\\Kreiser\\.nuget\\packages\\dapper\\2.1.79\\dapper.2.1.79.nupkg.sha512",

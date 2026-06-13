@@ -556,11 +556,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Indev\\App\\App.API\\App.API.csproj",
+      "projectUniqueName": "E:\\Indev\\Store\\App.API\\App.API.csproj",
       "projectName": "App.API",
-      "projectPath": "D:\\Indev\\App\\App.API\\App.API.csproj",
+      "projectPath": "E:\\Indev\\Store\\App.API\\App.API.csproj",
       "packagesPath": "C:\\Users\\Kreiser\\.nuget\\packages\\",
-      "outputPath": "D:\\Indev\\App\\App.API\\obj\\",
+      "outputPath": "E:\\Indev\\Store\\App.API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Kreiser\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -575,10 +575,11 @@
       },
       "frameworks": {
         "net10.0": {
+          "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
-            "D:\\Indev\\App\\App.Database\\App.Database.csproj": {
-              "projectPath": "D:\\Indev\\App\\App.Database\\App.Database.csproj"
+            "E:\\Indev\\Store\\App.Database\\App.Database.csproj": {
+              "projectPath": "E:\\Indev\\Store\\App.Database\\App.Database.csproj"
             }
           }
         }
@@ -593,10 +594,11 @@
         "auditLevel": "low",
         "auditMode": "all"
       },
-      "SdkAnalysisLevel": "10.0.100"
+      "SdkAnalysisLevel": "10.0.200"
     },
     "frameworks": {
       "net10.0": {
+        "framework": "net10.0",
         "targetAlias": "net10.0",
         "dependencies": {
           "Microsoft.AspNetCore.Authentication.JwtBearer": {
@@ -631,7 +633,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.103/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.204/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.AspNetCore": "(,10.0.32767]",
           "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",

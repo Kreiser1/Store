@@ -153,6 +153,8 @@ public partial class Main : Window {
 
 				if (!Cart.Products.Add(cartProduct))
 					MessageBox.Show("Продукт уже есть в корзине.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Hand);
+				else
+					cart.Update();
 			}
 	}
 

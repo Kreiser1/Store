@@ -115,6 +115,8 @@
 									Text="{Binding Discount, StringFormat='Скидка: {0}%', TargetNullValue=''}" />
 							</WrapPanel>
 
+							<TextBlock FontStyle="Italic" Text="{Binding Count, StringFormat='В наличии: {0}', TargetNullValue=''}" />
+
 							<WrapPanel Orientation="Horizontal">
 								<Button
 									Height="32"

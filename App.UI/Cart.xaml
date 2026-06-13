@@ -62,24 +62,13 @@
 							<ColumnDefinition Width="*" />
 						</Grid.ColumnDefinitions>
 
-						<Grid Grid.Column="0">
-							<Image
-								Grid.Column="0"
-								Margin="0,0,10,0"
-								HorizontalAlignment="Stretch"
-								VerticalAlignment="Stretch"
-								Source="{Binding Image, TargetNullValue={x:Null}}"
-								Stretch="Fill" />
-
-							<TextBlock
-								HorizontalAlignment="Center"
-								VerticalAlignment="Center"
-								FontSize="20"
-								FontWeight="Bold"
-								Foreground="White"
-								Text="{Binding Count}"
-								TextAlignment="Center" />
-						</Grid>
+						<Image
+							Grid.Column="0"
+							Margin="0,0,10,0"
+							HorizontalAlignment="Stretch"
+							VerticalAlignment="Stretch"
+							Source="{Binding Image, TargetNullValue={x:Null}}"
+							Stretch="Fill" />
 
 						<StackPanel Grid.Column="1" VerticalAlignment="Center">
 							<TextBlock
@@ -120,6 +109,8 @@
 									Foreground="Red"
 									Text="{Binding Discount, StringFormat='Скидка: {0}%', TargetNullValue=''}" />
 							</WrapPanel>
+
+							<TextBlock FontStyle="Italic" Text="{Binding Count, StringFormat='К заказу: {0}', TargetNullValue=''}" />
 						</StackPanel>
 					</Grid>
 				</DataTemplate>

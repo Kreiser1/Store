@@ -23,10 +23,12 @@
 
 		public Cart() {
 			InitializeComponent();
+			Update();
+		}
 
-			IsVisibleChanged += async (s, e) => CartListBox.ItemsSource = Products;
-
-			A
+		public void Update() {
+			CartListBox.ItemsSource = Products.ToArray();
+			CartListBox.InvalidateVisual();
 		}
 
 		private async void OrderButton_Click(object sender, RoutedEventArgs e) {
@@ -35,7 +37,7 @@
 
 		private async void ClearButton_Click(object sender, RoutedEventArgs e) {
 			Products.Clear();
-			CartListBox.ItemsSource = Products;
+			Update();
 		}
 
 		internal void Window_CancelClosing(object sender, CancelEventArgs e) {

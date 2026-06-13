@@ -1,26 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Indev\\App\\",
+  "WorkspaceRootPath": "E:\\Indev\\Store\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{91186705-6DD3-E830-3BB0-5DB7FD7E4B58}|App.UI\\App.UI.csproj|d:\\indev\\app\\app.ui\\main.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{91186705-6DD3-E830-3BB0-5DB7FD7E4B58}|App.UI\\App.UI.csproj|solutionrelative:app.ui\\main.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{91186705-6DD3-E830-3BB0-5DB7FD7E4B58}|App.UI\\App.UI.csproj|e:\\indev\\store\\app.ui\\main.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{91186705-6DD3-E830-3BB0-5DB7FD7E4B58}|App.UI\\App.UI.csproj|solutionrelative:app.ui\\main.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{91186705-6DD3-E830-3BB0-5DB7FD7E4B58}|App.UI\\App.UI.csproj|d:\\indev\\app\\app.ui\\cart.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{91186705-6DD3-E830-3BB0-5DB7FD7E4B58}|App.UI\\App.UI.csproj|e:\\indev\\store\\app.ui\\cart.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{91186705-6DD3-E830-3BB0-5DB7FD7E4B58}|App.UI\\App.UI.csproj|solutionrelative:app.ui\\cart.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{91186705-6DD3-E830-3BB0-5DB7FD7E4B58}|App.UI\\App.UI.csproj|d:\\indev\\app\\app.ui\\cart.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{91186705-6DD3-E830-3BB0-5DB7FD7E4B58}|App.UI\\App.UI.csproj|solutionrelative:app.ui\\cart.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{91186705-6DD3-E830-3BB0-5DB7FD7E4B58}|App.UI\\App.UI.csproj|e:\\indev\\store\\app.ui\\cart.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{91186705-6DD3-E830-3BB0-5DB7FD7E4B58}|App.UI\\App.UI.csproj|solutionrelative:app.ui\\cart.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{91186705-6DD3-E830-3BB0-5DB7FD7E4B58}|App.UI\\App.UI.csproj|d:\\indev\\app\\app.ui\\profileeditor.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{91186705-6DD3-E830-3BB0-5DB7FD7E4B58}|App.UI\\App.UI.csproj|solutionrelative:app.ui\\profileeditor.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{91186705-6DD3-E830-3BB0-5DB7FD7E4B58}|App.UI\\App.UI.csproj|d:\\indev\\app\\app.ui\\profileeditor.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{91186705-6DD3-E830-3BB0-5DB7FD7E4B58}|App.UI\\App.UI.csproj|solutionrelative:app.ui\\profileeditor.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{91186705-6DD3-E830-3BB0-5DB7FD7E4B58}|App.UI\\App.UI.csproj|e:\\indev\\store\\app.ui\\main.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{91186705-6DD3-E830-3BB0-5DB7FD7E4B58}|App.UI\\App.UI.csproj|solutionrelative:app.ui\\main.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,69 +26,56 @@
       "DocumentGroups": [
         {
           "DockedWidth": 281,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ProfileEditor.xaml.cs",
-              "DocumentMoniker": "D:\\Indev\\App\\App.UI\\ProfileEditor.xaml.cs",
-              "RelativeDocumentMoniker": "App.UI\\ProfileEditor.xaml.cs",
-              "ToolTip": "D:\\Indev\\App\\App.UI\\ProfileEditor.xaml.cs",
-              "RelativeToolTip": "App.UI\\ProfileEditor.xaml.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAiwBMAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-11T14:51:29.21Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ProfileEditor.xaml",
-              "DocumentMoniker": "D:\\Indev\\App\\App.UI\\ProfileEditor.xaml",
-              "RelativeDocumentMoniker": "App.UI\\ProfileEditor.xaml",
-              "ToolTip": "D:\\Indev\\App\\App.UI\\ProfileEditor.xaml",
-              "RelativeToolTip": "App.UI\\ProfileEditor.xaml",
+              "DocumentIndex": 0,
+              "Title": "Main.xaml",
+              "DocumentMoniker": "E:\\Indev\\Store\\App.UI\\Main.xaml",
+              "RelativeDocumentMoniker": "App.UI\\Main.xaml",
+              "ToolTip": "E:\\Indev\\Store\\App.UI\\Main.xaml",
+              "RelativeToolTip": "App.UI\\Main.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-06-11T14:40:21.997Z",
+              "WhenOpened": "2026-06-11T21:08:53.908Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "Cart.xaml.cs",
-              "DocumentMoniker": "D:\\Indev\\App\\App.UI\\Cart.xaml.cs",
+              "DocumentMoniker": "E:\\Indev\\Store\\App.UI\\Cart.xaml.cs",
               "RelativeDocumentMoniker": "App.UI\\Cart.xaml.cs",
-              "ToolTip": "D:\\Indev\\App\\App.UI\\Cart.xaml.cs",
+              "ToolTip": "E:\\Indev\\Store\\App.UI\\Cart.xaml.cs",
               "RelativeToolTip": "App.UI\\Cart.xaml.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAAkwBgAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAgAwAAAAA2wBwAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-11T14:17:36.382Z",
+              "WhenOpened": "2026-06-11T20:51:51.621Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Cart.xaml",
-              "DocumentMoniker": "D:\\Indev\\App\\App.UI\\Cart.xaml",
+              "DocumentMoniker": "E:\\Indev\\Store\\App.UI\\Cart.xaml",
               "RelativeDocumentMoniker": "App.UI\\Cart.xaml",
-              "ToolTip": "D:\\Indev\\App\\App.UI\\Cart.xaml",
+              "ToolTip": "E:\\Indev\\Store\\App.UI\\Cart.xaml",
               "RelativeToolTip": "App.UI\\Cart.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-06-11T14:25:47.454Z",
+              "WhenOpened": "2026-06-11T20:40:27.885Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Main.xaml.cs",
-              "DocumentMoniker": "D:\\Indev\\App\\App.UI\\Main.xaml.cs",
+              "DocumentMoniker": "E:\\Indev\\Store\\App.UI\\Main.xaml.cs",
               "RelativeDocumentMoniker": "App.UI\\Main.xaml.cs",
-              "ToolTip": "D:\\Indev\\App\\App.UI\\Main.xaml.cs",
+              "ToolTip": "E:\\Indev\\Store\\App.UI\\Main.xaml.cs",
               "RelativeToolTip": "App.UI\\Main.xaml.cs",
-              "ViewState": "AgIAAIcAAAAAAAAAAAA4wJUAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAJ0AAAAANFFLc+EbwKsAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-11T14:24:32.81Z",
+              "WhenOpened": "2026-06-11T20:50:03.953Z",
               "EditorCaption": ""
             }
           ]

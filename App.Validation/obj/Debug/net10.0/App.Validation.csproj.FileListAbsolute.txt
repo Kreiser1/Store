@@ -9,3 +9,15 @@ D:\Indev\App\App.Validation\obj\Debug\net10.0\App.Validation.dll
 D:\Indev\App\App.Validation\obj\Debug\net10.0\refint\App.Validation.dll
 D:\Indev\App\App.Validation\obj\Debug\net10.0\App.Validation.pdb
 D:\Indev\App\App.Validation\obj\Debug\net10.0\ref\App.Validation.dll
+E:\Indev\Store\App.Validation\bin\Debug\net10.0\App.Validation.deps.json
+E:\Indev\Store\App.Validation\bin\Debug\net10.0\App.Validation.dll
+E:\Indev\Store\App.Validation\bin\Debug\net10.0\App.Validation.pdb
+E:\Indev\Store\App.Validation\obj\Debug\net10.0\App.Validation.GeneratedMSBuildEditorConfig.editorconfig
+E:\Indev\Store\App.Validation\obj\Debug\net10.0\App.Validation.AssemblyInfoInputs.cache
+E:\Indev\Store\App.Validation\obj\Debug\net10.0\App.Validation.AssemblyInfo.cs
+E:\Indev\Store\App.Validation\obj\Debug\net10.0\App.Validation.csproj.CoreCompileInputs.cache
+E:\Indev\Store\App.Validation\obj\Debug\net10.0\App.Validation.sourcelink.json
+E:\Indev\Store\App.Validation\obj\Debug\net10.0\App.Validation.dll
+E:\Indev\Store\App.Validation\obj\Debug\net10.0\refint\App.Validation.dll
+E:\Indev\Store\App.Validation\obj\Debug\net10.0\App.Validation.pdb
+E:\Indev\Store\App.Validation\obj\Debug\net10.0\ref\App.Validation.dll

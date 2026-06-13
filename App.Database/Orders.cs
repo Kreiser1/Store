@@ -10,15 +10,30 @@
 
 	public static class Orders {
 		public static Order New(int userId, (int Id, int Count)[] products) {
+			using var transaction = Database.Connection.BeginTransaction();
+
 			try {
 				Order order = Database.Connection.QueryFirst<Order>(@"
 					INSERT INTO orders (user_id) VALUES (@UserId) RETURNING *;
 					", new { UserId = userId });
 
-				foreach (var (Id, Count) in products)
+				foreach (var (Id, Count) in products) {
+					var product = Products.Get(Id);
+
+					if (product is null)
+						throw new DatabaseException("Продукт с таким ID не найден.");
+
+					if (Count > product.Count)
+						throw new DatabaseException("Такого количества продукта нет в наличии.");
+
+					Products.Update(Id, count: product.Count - Count);
+
 					Database.Connection.Execute(@"
 						INSERT INTO order_products (order_id, product_id, count) INSERT VALUES (@OrderId, @ProductId, @Counts);
 						", new { OrderId = order.Id, ProductId = Id, Count = Count });
+				}
+
+				transaction.Commit();
 
 				order.Products = products;
 				return order;
@@ -92,12 +107,11 @@
 							VALUES (@OrderId, @ProductId, @Count);
 							", new { OrderId = id, ProductId = productId, Count = count });
 				}
+
+				transaction.Commit();
 			} catch (PostgresException e) when (e.SqlState == PostgresErrorCodes.ForeignKeyViolation) {
-				transaction.Rollback();
 				throw new DatabaseException("Продукт с таким ID не найден.");
 			}
-
-			transaction.Commit();
 		}
 
 		public static void Delete(int id) {
