@@ -2,7 +2,10 @@
 	using System;
 	using System.Collections.Generic;
 	using System.ComponentModel;
+	using System.Net.Http;
+	using System.Net.Http.Json;
 	using System.Text;
+	using System.Text.Json;
 	using System.Windows;
 	using System.Windows.Controls;
 	using System.Windows.Data;
@@ -13,27 +16,45 @@
 	using System.Windows.Shapes;
 	using System.Windows.Threading;
 
-	internal class ProductEqualityComparer : IEqualityComparer<Product> {
-		public bool Equals(Product x, Product y) => x.Id == y.Id;
-		public int GetHashCode(Product obj) => obj.Id.GetHashCode();
-	}
+	using App.API.Schema;
 
 	public partial class Cart : Window {
-		public static HashSet<Product> Products = new(new ProductEqualityComparer());
+		public static HashSet<Product> Products = new();
 
-		public Cart() {
+		public Cart(Product[]? products = null) {
 			InitializeComponent();
-			Update();
+
+			if (products is not null) {
+				CartListBox.ItemsSource = products;
+				ClearButton.IsEnabled = false;
+				OrderButton.IsEnabled = false;
+			} else
+				Update();
 		}
 
 		public void Update() {
 			CartListBox.ItemsSource = Products.ToArray();
-			CartListBox.InvalidateVisual();
 		}
 
 		private async void OrderButton_Click(object sender, RoutedEventArgs e) {
-			
-        }
+			var request = new OrderCreateRequest(Profile.Id.Value, Products.Select(product => new OrderProduct(product.Id, product.Count)).ToArray());
+
+			OrderButton.IsEnabled = false;
+
+			try {
+				var response = await App_.API.PostAsJsonAsync("orders", request, new System.Text.Json.JsonSerializerOptions { IncludeFields = true });
+
+				if (response.IsSuccessStatusCode) {
+					Products.Clear();
+					Close();
+				} else
+					MessageBox.Show("Не удалось сделать заказ.", response.StatusCode.ToString(), MessageBoxButton.OK, MessageBoxImage.Hand);
+			} catch (HttpRequestException) {
+				MessageBox.Show("Не удалось подключиться к серверу.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+			} finally {
+				OrderButton.IsEnabled = true;
+			}
+		}
 
 		private async void ClearButton_Click(object sender, RoutedEventArgs e) {
 			Products.Clear();
@@ -43,6 +64,11 @@
 		internal void Window_CancelClosing(object sender, CancelEventArgs e) {
 			e.Cancel = true;
 			Hide();
+		}
+
+		private void Window_SourceInitialized(object sender, EventArgs e) {
+			this.MinWidth = this.ActualWidth;
+			this.MinHeight = this.ActualHeight;
 		}
 	}
 }

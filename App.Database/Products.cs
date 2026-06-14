@@ -60,7 +60,9 @@
 		public static void Update(int id, string? name = null, int? count = null, int? price = null, string? unit = null,
 			string? description = null, int[]? categories = null, byte[]? image = null, string? manufacturer = null,
 			string? provider = null, float? discount = null) {
-			Validation.Validator.Validate(name, (ValidationAttribute[])typeof(Product).GetProperty(nameof(Product.Name)).GetCustomAttributes(typeof(ValidationAttribute), true));
+
+			if (name is not null)
+				Validation.Validator.Validate(name, (ValidationAttribute[])typeof(Product).GetProperty(nameof(Product.Name)).GetCustomAttributes(typeof(ValidationAttribute), true));
 
 			if (unit is not null)
 				Validation.Validator.Validate(unit, (ValidationAttribute[])typeof(Product).GetProperty(nameof(Product.Unit)).GetCustomAttributes(typeof(ValidationAttribute), true));
@@ -93,7 +95,7 @@
 			using var transaction = Database.Connection.BeginTransaction();
 
 			if (clauses.Count > 0) {
-				int rowsAffected = Database.Connection.Execute($"UPDATE products SET {string.Join(", ", clauses)} WHERE id = @Id;", parameters);
+				int rowsAffected = Database.Connection.Execute($"UPDATE products SET {string.Join(", ", clauses)} WHERE id = @Id;", parameters, transaction);
 
 				if (rowsAffected == 0) {
 					transaction.Rollback();
@@ -102,14 +104,14 @@
 			}
 
 			if (categories is not null) {
-				Database.Connection.Execute("DELETE FROM product_categories WHERE product_id = @ProductId;", new { ProductId = id });
+				Database.Connection.Execute("DELETE FROM product_categories WHERE product_id = @ProductId;", new { ProductId = id }, transaction);
 
 				try {
 					foreach (var category in categories)
 						Database.Connection.Execute(@"
 							INSERT INTO product_categories (product_id, category_id) 
 							VALUES (@ProductId, @CategoryId);
-							", new { ProductId = id, CategoryId = category });
+							", new { ProductId = id, CategoryId = category }, transaction);
 				} catch (PostgresException e) when (e.SqlState == PostgresErrorCodes.ForeignKeyViolation) {
 					transaction.Rollback();
 					throw new DatabaseException("Категории с таким ID не существует.");

@@ -21,3 +21,4 @@ E:\Indev\Store\App.Validation\obj\Debug\net10.0\App.Validation.dll
 E:\Indev\Store\App.Validation\obj\Debug\net10.0\refint\App.Validation.dll
 E:\Indev\Store\App.Validation\obj\Debug\net10.0\App.Validation.pdb
 E:\Indev\Store\App.Validation\obj\Debug\net10.0\ref\App.Validation.dll
+D:\Indev\App\App.Validation\obj\Debug\net10.0\App.Validation.sourcelink.json

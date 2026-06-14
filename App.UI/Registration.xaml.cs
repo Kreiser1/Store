@@ -71,6 +71,7 @@
 						App_.API.DefaultRequestHeaders.Authorization =
 							new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", result.Token);
 
+						await Profile.load();
 						new Main().Show();
 						Close();
 					} else

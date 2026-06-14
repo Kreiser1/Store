@@ -127,7 +127,12 @@ public partial class Main : Window {
 			RefreshButton.Visibility = Visibility.Collapsed;
 		} else {
 			AddButton.Visibility = Visibility.Collapsed;
-			SearchTextBox.Visibility = Visibility.Collapsed;
+
+			if (Profile.Role != Role.Admin) {
+				AddButton.Visibility = Visibility.Collapsed;
+				AdminButton.Visibility = Visibility.Collapsed;
+				SearchTextBox.Visibility = Visibility.Collapsed;
+			}
 		}
 
 		CatalogueListBox.ItemsSource = await Catalogue.load();
@@ -146,6 +151,11 @@ public partial class Main : Window {
 
 				if (!int.TryParse(Interaction.InputBox("Введите количество продуктов:", "Добавление в корзину"), out count) || count <= 0) {
 					MessageBox.Show("Введено неверное количество продуктов.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Hand);
+					return;
+				}
+
+				if (count > product.Count) {
+					MessageBox.Show("Такого количества продуктов нет в наличии.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Hand);
 					return;
 				}
 
@@ -183,12 +193,29 @@ public partial class Main : Window {
 		RefreshButton.IsEnabled = true;
 	}
 
-	private void AddButton_Click(object sender, RoutedEventArgs e) {
-
+	private async void AddButton_Click(object sender, RoutedEventArgs e) {
+		AddButton.IsEnabled = false;
+		
+		var productEditor = new ProductEditor();
+		productEditor.Closed += async (s, e) => AddButton.IsEnabled = true;
+		productEditor.Show();
 	}
 
 	private async void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e) {
 		if (SearchTextBox.Text.IsWhiteSpace() || SearchTextBox.Text.Length >= 3)
 			CatalogueListBox.ItemsSource = await Catalogue.search(SearchTextBox.Text);
+	}
+
+	private void Window_SourceInitialized(object sender, EventArgs e) {
+		this.MinWidth = this.ActualWidth;
+		this.MinHeight = this.ActualHeight;
+	}
+
+	private async void AdminButton_Click(object sender, RoutedEventArgs e) {
+		AdminButton.IsEnabled = false;
+
+		var admin = new Admin();
+		admin.Closed += async (s, e) => AddButton.IsEnabled = true;
+		admin.Show();
 	}
 }

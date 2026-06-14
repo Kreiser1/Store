@@ -9,7 +9,6 @@
 	Width="400"
 	Height="550"
 	ResizeMode="NoResize"
-	ShowInTaskbar="False"
 	Topmost="True"
 	WindowStartupLocation="CenterScreen"
 	mc:Ignorable="d">
@@ -52,7 +51,8 @@
 				Height="32"
 				Margin="0,0,0,5"
 				Padding="5,0"
-				VerticalContentAlignment="Center" />
+				VerticalContentAlignment="Center"
+				MaxLength="50" />
 
 			<TextBlock
 				Margin="0,0,0,3"
@@ -64,7 +64,8 @@
 				Height="32"
 				Margin="0,0,0,5"
 				Padding="5,0"
-				VerticalContentAlignment="Center" />
+				VerticalContentAlignment="Center"
+				MaxLength="50" />
 
 			<TextBlock
 				Margin="0,0,0,3"

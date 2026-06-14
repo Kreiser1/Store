@@ -206,7 +206,7 @@ internal static class API {
 				return Results.Forbid();
 
 			try {
-				var order = Orders.New(request.UserId, request.Products);
+				var order = Orders.New(request.UserId, request.Products.Select(product => (product.Id, product.Count)).ToArray());
 
 				return Results.Json(new OrderResponse(order.Id, order.UserId,
 					request.Products.Select((product) => {

@@ -26,7 +26,7 @@
 				HorizontalAlignment="Center"
 				FontSize="22"
 				FontWeight="SemiBold"
-				Text="Проифль"
+				Text="Профиль"
 				TextAlignment="Center"
 				TextWrapping="Wrap" />
 
@@ -53,7 +53,8 @@
 				Height="32"
 				Margin="0,0,0,5"
 				Padding="5,0"
-				VerticalContentAlignment="Center" />
+				VerticalContentAlignment="Center"
+				MaxLength="50" />
 
 			<TextBlock
 				Margin="0,0,0,3"
@@ -65,7 +66,8 @@
 				Height="32"
 				Margin="0,0,0,5"
 				Padding="5,0"
-				VerticalContentAlignment="Center" />
+				VerticalContentAlignment="Center"
+				MaxLength="50" />
 
 			<TextBlock
 				Margin="0,0,0,3"
@@ -83,6 +85,7 @@
 			<Button
 				Name="ConfirmButton"
 				Height="36"
+				HorizontalAlignment="Stretch"
 				Background="#007ACC"
 				BorderThickness="0"
 				Click="ConfirmButton_Click"

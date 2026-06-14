@@ -10,6 +10,7 @@
 	Height="450"
 	Loaded="Window_Loaded"
 	ResizeMode="CanResize"
+	SourceInitialized="Window_SourceInitialized"
 	WindowStartupLocation="CenterScreen"
 	mc:Ignorable="d">
 	<Grid Margin="15">
@@ -29,12 +30,6 @@
 			Grid.Row="0"
 			Grid.Column="0"
 			Margin="5">
-			<TextBlock
-				HorizontalAlignment="Left"
-				VerticalAlignment="Center"
-				FontSize="22"
-				FontWeight="Bold"
-				Text="Каталог" />
 			<Button
 				Name="AddButton"
 				Width="52"
@@ -44,6 +39,29 @@
 				BorderThickness="0"
 				Click="AddButton_Click"
 				Content="➕"
+				Cursor="Hand"
+				DockPanel.Dock="Right"
+				FontSize="14"
+				FontWeight="SemiBold"
+				Foreground="White" />
+
+			<TextBlock
+				HorizontalAlignment="Left"
+				VerticalAlignment="Center"
+				FontSize="22"
+				FontWeight="Bold"
+				Text="Каталог" />
+
+			<Button
+				Name="AdminButton"
+				Width="52"
+				Height="32"
+				Margin="0,0,5,0"
+				HorizontalAlignment="Right"
+				Background="Crimson"
+				BorderThickness="0"
+				Click="AdminButton_Click"
+				Content="🛠️"
 				Cursor="Hand"
 				FontSize="14"
 				FontWeight="SemiBold"
@@ -111,7 +129,7 @@
 
 								<TextBlock
 									FontWeight="Bold"
-									Foreground="Red"
+									Foreground="Crimson"
 									Text="{Binding Discount, StringFormat='Скидка: {0}%', TargetNullValue=''}" />
 							</WrapPanel>
 
@@ -137,7 +155,6 @@
 			</ListBox.ItemTemplate>
 		</ListBox>
 
-
 		<DockPanel
 			Grid.Row="2"
 			Grid.Column="0"
@@ -156,6 +173,7 @@
 				FontSize="14"
 				FontWeight="SemiBold"
 				Foreground="White" />
+
 			<TextBox
 				Name="SearchTextBox"
 				Height="32"
@@ -163,6 +181,7 @@
 				Padding="5,0"
 				HorizontalAlignment="Stretch"
 				VerticalContentAlignment="Center"
+				MaxLength="100"
 				TextChanged="SearchTextBox_TextChanged" />
 		</DockPanel>
 

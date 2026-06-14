@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Indev\\Store\\App.API\\App.API.csproj": {}
+    "D:\\Indev\\App\\App.API\\App.API.csproj": {}
   },
   "projects": {
-    "E:\\Indev\\Store\\App.API\\App.API.csproj": {
+    "D:\\Indev\\App\\App.API\\App.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Indev\\Store\\App.API\\App.API.csproj",
+        "projectUniqueName": "D:\\Indev\\App\\App.API\\App.API.csproj",
         "projectName": "App.API",
-        "projectPath": "E:\\Indev\\Store\\App.API\\App.API.csproj",
+        "projectPath": "D:\\Indev\\App\\App.API\\App.API.csproj",
         "packagesPath": "C:\\Users\\Kreiser\\.nuget\\packages\\",
-        "outputPath": "E:\\Indev\\Store\\App.API\\obj\\",
+        "outputPath": "D:\\Indev\\App\\App.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Kreiser\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -26,11 +26,10 @@
         },
         "frameworks": {
           "net10.0": {
-            "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
-              "E:\\Indev\\Store\\App.Database\\App.Database.csproj": {
-                "projectPath": "E:\\Indev\\Store\\App.Database\\App.Database.csproj"
+              "D:\\Indev\\App\\App.Database\\App.Database.csproj": {
+                "projectPath": "D:\\Indev\\App\\App.Database\\App.Database.csproj"
               }
             }
           }
@@ -45,11 +44,10 @@
           "auditLevel": "low",
           "auditMode": "all"
         },
-        "SdkAnalysisLevel": "10.0.200"
+        "SdkAnalysisLevel": "10.0.100"
       },
       "frameworks": {
         "net10.0": {
-          "framework": "net10.0",
           "targetAlias": "net10.0",
           "dependencies": {
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
@@ -84,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.204/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.103/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.AspNetCore": "(,10.0.32767]",
             "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",
@@ -502,14 +500,14 @@
         }
       }
     },
-    "E:\\Indev\\Store\\App.Database\\App.Database.csproj": {
+    "D:\\Indev\\App\\App.Database\\App.Database.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Indev\\Store\\App.Database\\App.Database.csproj",
+        "projectUniqueName": "D:\\Indev\\App\\App.Database\\App.Database.csproj",
         "projectName": "App.Database",
-        "projectPath": "E:\\Indev\\Store\\App.Database\\App.Database.csproj",
+        "projectPath": "D:\\Indev\\App\\App.Database\\App.Database.csproj",
         "packagesPath": "C:\\Users\\Kreiser\\.nuget\\packages\\",
-        "outputPath": "E:\\Indev\\Store\\App.Database\\obj\\",
+        "outputPath": "D:\\Indev\\App\\App.Database\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Kreiser\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -524,11 +522,10 @@
         },
         "frameworks": {
           "net10.0": {
-            "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
-              "E:\\Indev\\Store\\App.Validation\\App.Validation.csproj": {
-                "projectPath": "E:\\Indev\\Store\\App.Validation\\App.Validation.csproj"
+              "D:\\Indev\\App\\App.Validation\\App.Validation.csproj": {
+                "projectPath": "D:\\Indev\\App\\App.Validation\\App.Validation.csproj"
               }
             }
           }
@@ -543,11 +540,10 @@
           "auditLevel": "low",
           "auditMode": "all"
         },
-        "SdkAnalysisLevel": "10.0.200"
+        "SdkAnalysisLevel": "10.0.100"
       },
       "frameworks": {
         "net10.0": {
-          "framework": "net10.0",
           "targetAlias": "net10.0",
           "dependencies": {
             "BCrypt.Net-Next": {
@@ -587,7 +583,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.204/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.103/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",
@@ -865,14 +861,14 @@
         }
       }
     },
-    "E:\\Indev\\Store\\App.Validation\\App.Validation.csproj": {
+    "D:\\Indev\\App\\App.Validation\\App.Validation.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Indev\\Store\\App.Validation\\App.Validation.csproj",
+        "projectUniqueName": "D:\\Indev\\App\\App.Validation\\App.Validation.csproj",
         "projectName": "App.Validation",
-        "projectPath": "E:\\Indev\\Store\\App.Validation\\App.Validation.csproj",
+        "projectPath": "D:\\Indev\\App\\App.Validation\\App.Validation.csproj",
         "packagesPath": "C:\\Users\\Kreiser\\.nuget\\packages\\",
-        "outputPath": "E:\\Indev\\Store\\App.Validation\\obj\\",
+        "outputPath": "D:\\Indev\\App\\App.Validation\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Kreiser\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -887,7 +883,6 @@
         },
         "frameworks": {
           "net10.0": {
-            "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {}
           }
@@ -902,11 +897,10 @@
           "auditLevel": "low",
           "auditMode": "all"
         },
-        "SdkAnalysisLevel": "10.0.200"
+        "SdkAnalysisLevel": "10.0.100"
       },
       "frameworks": {
         "net10.0": {
-          "framework": "net10.0",
           "targetAlias": "net10.0",
           "imports": [
             "net461",
@@ -924,7 +918,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.204/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.103/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",

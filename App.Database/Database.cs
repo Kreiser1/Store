@@ -6,6 +6,8 @@ using System.Data;
 
 using Microsoft.Extensions.Configuration;
 
+using App.Database.Models;
+
 namespace App.Database {
 	public class DatabaseException : Exception {
 		public DatabaseException() : base() { }
@@ -24,6 +26,7 @@ namespace App.Database {
 
 			try {
 				connection = new(connectionString);
+				connection.Open();
 
 				connection.Execute(@"
 					CREATE TABLE IF NOT EXISTS categories (
@@ -80,6 +83,10 @@ namespace App.Database {
 							ON DELETE RESTRICT ON UPDATE RESTRICT
 					);
 				");
+
+				try {
+					Users.New("admin", "admin", Role.Admin);
+				} catch { }
 			} catch (PostgresException) { throw new DatabaseException("Не удалось инициализировать базу данных."); } catch (NpgsqlException) { throw new DatabaseException("Не удалось подключиться к базе данных."); }
 		}
 	}

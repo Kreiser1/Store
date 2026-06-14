@@ -863,11 +863,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Indev\\Store\\App.UI\\App.UI.csproj",
+      "projectUniqueName": "D:\\Indev\\App\\App.UI\\App.UI.csproj",
       "projectName": "App.UI",
-      "projectPath": "E:\\Indev\\Store\\App.UI\\App.UI.csproj",
+      "projectPath": "D:\\Indev\\App\\App.UI\\App.UI.csproj",
       "packagesPath": "C:\\Users\\Kreiser\\.nuget\\packages\\",
-      "outputPath": "E:\\Indev\\Store\\App.UI\\obj\\",
+      "outputPath": "D:\\Indev\\App\\App.UI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Kreiser\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -882,14 +882,13 @@
       },
       "frameworks": {
         "net10.0-windows7.0": {
-          "framework": "net10.0-windows7.0",
           "targetAlias": "net10.0-windows",
           "projectReferences": {
-            "E:\\Indev\\Store\\App.API\\App.API.csproj": {
-              "projectPath": "E:\\Indev\\Store\\App.API\\App.API.csproj"
+            "D:\\Indev\\App\\App.API\\App.API.csproj": {
+              "projectPath": "D:\\Indev\\App\\App.API\\App.API.csproj"
             },
-            "E:\\Indev\\Store\\App.Validation\\App.Validation.csproj": {
-              "projectPath": "E:\\Indev\\Store\\App.Validation\\App.Validation.csproj"
+            "D:\\Indev\\App\\App.Validation\\App.Validation.csproj": {
+              "projectPath": "D:\\Indev\\App\\App.Validation\\App.Validation.csproj"
             }
           }
         }
@@ -904,11 +903,10 @@
         "auditLevel": "low",
         "auditMode": "all"
       },
-      "SdkAnalysisLevel": "10.0.200"
+      "SdkAnalysisLevel": "10.0.100"
     },
     "frameworks": {
       "net10.0-windows7.0": {
-        "framework": "net10.0-windows7.0",
         "targetAlias": "net10.0-windows",
         "imports": [
           "net461",
@@ -929,7 +927,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.204/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.103/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.CSharp": "(,4.7.32767]",
           "Microsoft.VisualBasic": "(,10.4.32767]",

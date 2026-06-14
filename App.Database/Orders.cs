@@ -10,8 +10,6 @@
 
 	public static class Orders {
 		public static Order New(int userId, (int Id, int Count)[] products) {
-			using var transaction = Database.Connection.BeginTransaction();
-
 			try {
 				Order order = Database.Connection.QueryFirst<Order>(@"
 					INSERT INTO orders (user_id) VALUES (@UserId) RETURNING *;
@@ -29,11 +27,9 @@
 					Products.Update(Id, count: product.Count - Count);
 
 					Database.Connection.Execute(@"
-						INSERT INTO order_products (order_id, product_id, count) INSERT VALUES (@OrderId, @ProductId, @Counts);
+						INSERT INTO order_products (order_id, product_id, count) VALUES (@OrderId, @ProductId, @Count);
 						", new { OrderId = order.Id, ProductId = Id, Count = Count });
 				}
-
-				transaction.Commit();
 
 				order.Products = products;
 				return order;
@@ -90,7 +86,7 @@
 
 			try {
 				if (clauses.Count > 0) {
-					int rowsAffected = Database.Connection.Execute($"UPDATE orders SET {string.Join(", ", clauses)} WHERE id = @Id;", parameters);
+					int rowsAffected = Database.Connection.Execute($"UPDATE orders SET {string.Join(", ", clauses)} WHERE id = @Id;", parameters, transaction);
 
 					if (rowsAffected == 0) {
 						transaction.Rollback();
@@ -99,13 +95,13 @@
 				}
 
 				if (products is not null) {
-					Database.Connection.Execute("DELETE FROM order_products WHERE order_id = @OrderId;", new { OrderId = id });
+					Database.Connection.Execute("DELETE FROM order_products WHERE order_id = @OrderId;", new { OrderId = id }, transaction);
 
 					foreach (var (productId, count) in products)
 						Database.Connection.Execute(@"
 							INSERT INTO order_products (order_id, product_id, count) 
 							VALUES (@OrderId, @ProductId, @Count);
-							", new { OrderId = id, ProductId = productId, Count = count });
+							", new { OrderId = id, ProductId = productId, Count = count }, transaction);
 				}
 
 				transaction.Commit();

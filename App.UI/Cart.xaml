@@ -10,6 +10,7 @@
 	Height="450"
 	Closing="Window_CancelClosing"
 	ResizeMode="CanResize"
+	SourceInitialized="Window_SourceInitialized"
 	Topmost="True"
 	WindowStartupLocation="CenterOwner"
 	mc:Ignorable="d">
@@ -106,7 +107,7 @@
 
 								<TextBlock
 									FontWeight="Bold"
-									Foreground="Red"
+									Foreground="Crimson"
 									Text="{Binding Discount, StringFormat='Скидка: {0}%', TargetNullValue=''}" />
 							</WrapPanel>
 

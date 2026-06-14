@@ -37,7 +37,8 @@ public record ProductQueryRequest(
 );
 
 public record OrderResponse(int Id, int UserId, ProductResponse[] Products);
-public record OrderCreateRequest(int UserId, (int Id, int Count)[] Products);
+public record OrderProduct(int Id, int Count);
+public record OrderCreateRequest(int UserId, OrderProduct[] Products);
 public record OrderUpdateRequest(int? UserId = null, (int Id, int Count)[]? Products = null);
 
 public record ErrorResponse(string Message);

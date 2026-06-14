@@ -95,3 +95,4 @@ E:\Indev\Store\App.API\obj\Debug\net10.0\refint\App.API.dll
 E:\Indev\Store\App.API\obj\Debug\net10.0\App.API.pdb
 E:\Indev\Store\App.API\obj\Debug\net10.0\App.API.genruntimeconfig.cache
 E:\Indev\Store\App.API\obj\Debug\net10.0\ref\App.API.dll
+D:\Indev\App\App.API\obj\Debug\net10.0\App.API.sourcelink.json
