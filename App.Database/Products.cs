@@ -129,12 +129,12 @@
 
 			try {
 				int rowsAffected = Database.Connection.Execute(@"
-				DELETE FROM products WHERE id = @Id;
-				", new { Id = id });
+					DELETE FROM products WHERE id = @Id;
+					", new { Id = id });
 
 				if (rowsAffected == 0)
 					throw new DatabaseException("Продукт с таким ID не найден.");
-			} catch (PostgresException e) when (e.SqlState == PostgresErrorCodes.ForeignKeyViolation) {
+			} catch (PostgresException e) when (e.SqlState == PostgresErrorCodes.RestrictViolation) {
 				throw new DatabaseException("Продукт числится в заказах.");
 			}
 		}

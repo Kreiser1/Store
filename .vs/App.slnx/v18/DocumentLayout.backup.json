@@ -1,14 +1,30 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Indev\\App\\",
+  "WorkspaceRootPath": "E:\\Indev\\Store\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{91186705-6DD3-E830-3BB0-5DB7FD7E4B58}|App.UI\\App.UI.csproj|d:\\indev\\app\\app.ui\\admin.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{91186705-6DD3-E830-3BB0-5DB7FD7E4B58}|App.UI\\App.UI.csproj|solutionrelative:app.ui\\admin.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{FDD10DAC-E2F8-32EE-74F5-DAD693B0BB9A}|App.Database\\App.Database.csproj|e:\\indev\\store\\app.database\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FDD10DAC-E2F8-32EE-74F5-DAD693B0BB9A}|App.Database\\App.Database.csproj|solutionrelative:app.database\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{91186705-6DD3-E830-3BB0-5DB7FD7E4B58}|App.UI\\App.UI.csproj|d:\\indev\\app\\app.ui\\admin.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9DA71A78-A28F-8F84-EF7E-17686113D26D}|App.API\\App.API.csproj|e:\\indev\\store\\app.api\\api.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9DA71A78-A28F-8F84-EF7E-17686113D26D}|App.API\\App.API.csproj|solutionrelative:app.api\\api.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{91186705-6DD3-E830-3BB0-5DB7FD7E4B58}|App.UI\\App.UI.csproj|e:\\indev\\store\\app.ui\\admin.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{91186705-6DD3-E830-3BB0-5DB7FD7E4B58}|App.UI\\App.UI.csproj|solutionrelative:app.ui\\admin.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{91186705-6DD3-E830-3BB0-5DB7FD7E4B58}|App.UI\\App.UI.csproj|e:\\indev\\store\\app.ui\\login.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{91186705-6DD3-E830-3BB0-5DB7FD7E4B58}|App.UI\\App.UI.csproj|solutionrelative:app.ui\\login.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{91186705-6DD3-E830-3BB0-5DB7FD7E4B58}|App.UI\\App.UI.csproj|e:\\indev\\store\\app.ui\\main.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{91186705-6DD3-E830-3BB0-5DB7FD7E4B58}|App.UI\\App.UI.csproj|solutionrelative:app.ui\\main.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{91186705-6DD3-E830-3BB0-5DB7FD7E4B58}|App.UI\\App.UI.csproj|e:\\indev\\store\\app.ui\\admin.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{91186705-6DD3-E830-3BB0-5DB7FD7E4B58}|App.UI\\App.UI.csproj|solutionrelative:app.ui\\admin.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,30 +34,83 @@
       "DocumentGroups": [
         {
           "DockedWidth": 281,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Admin.xaml.cs",
-              "DocumentMoniker": "D:\\Indev\\App\\App.UI\\Admin.xaml.cs",
-              "RelativeDocumentMoniker": "App.UI\\Admin.xaml.cs",
-              "ToolTip": "D:\\Indev\\App\\App.UI\\Admin.xaml.cs",
-              "RelativeToolTip": "App.UI\\Admin.xaml.cs",
+              "DocumentIndex": 0,
+              "Title": "Users.cs",
+              "DocumentMoniker": "E:\\Indev\\Store\\App.Database\\Users.cs",
+              "RelativeDocumentMoniker": "App.Database\\Users.cs",
+              "ToolTip": "E:\\Indev\\Store\\App.Database\\Users.cs",
+              "RelativeToolTip": "App.Database\\Users.cs",
+              "ViewState": "AgIAAIAAAACAZFdaRg8iwJgAAACCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-13T14:18:52.767Z",
+              "WhenOpened": "2026-06-14T15:17:51.312Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
+              "Title": "Login.xaml.cs",
+              "DocumentMoniker": "E:\\Indev\\Store\\App.UI\\Login.xaml.cs",
+              "RelativeDocumentMoniker": "App.UI\\Login.xaml.cs",
+              "ToolTip": "E:\\Indev\\Store\\App.UI\\Login.xaml.cs",
+              "RelativeToolTip": "App.UI\\Login.xaml.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAowBwAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-14T14:38:18.015Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "API.cs",
+              "DocumentMoniker": "E:\\Indev\\Store\\App.API\\API.cs",
+              "RelativeDocumentMoniker": "App.API\\API.cs",
+              "ToolTip": "E:\\Indev\\Store\\App.API\\API.cs",
+              "RelativeToolTip": "App.API\\API.cs",
+              "ViewState": "AgIAAMMAAADQDqpEEXEJwMsAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-14T11:26:19.06Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Admin.xaml.cs",
+              "DocumentMoniker": "E:\\Indev\\Store\\App.UI\\Admin.xaml.cs",
+              "RelativeDocumentMoniker": "App.UI\\Admin.xaml.cs",
+              "ToolTip": "E:\\Indev\\Store\\App.UI\\Admin.xaml.cs",
+              "RelativeToolTip": "App.UI\\Admin.xaml.cs",
+              "ViewState": "AgIAAB0AAABAgji6SpkgwDYAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-14T11:25:01.616Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "Admin.xaml",
-              "DocumentMoniker": "D:\\Indev\\App\\App.UI\\Admin.xaml",
+              "DocumentMoniker": "E:\\Indev\\Store\\App.UI\\Admin.xaml",
               "RelativeDocumentMoniker": "App.UI\\Admin.xaml",
-              "ToolTip": "D:\\Indev\\App\\App.UI\\Admin.xaml",
+              "ToolTip": "E:\\Indev\\Store\\App.UI\\Admin.xaml",
               "RelativeToolTip": "App.UI\\Admin.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-06-13T14:17:14.05Z",
+              "WhenOpened": "2026-06-14T11:24:48.493Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Main.xaml.cs",
+              "DocumentMoniker": "E:\\Indev\\Store\\App.UI\\Main.xaml.cs",
+              "RelativeDocumentMoniker": "App.UI\\Main.xaml.cs",
+              "ToolTip": "E:\\Indev\\Store\\App.UI\\Main.xaml.cs",
+              "RelativeToolTip": "App.UI\\Main.xaml.cs",
+              "ViewState": "AgIAAI4AAAAAAAAAAAAQwJ0AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-14T11:22:26.939Z",
               "EditorCaption": ""
             }
           ]

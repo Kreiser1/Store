@@ -125,7 +125,7 @@
 
 				if (rowsAffected == 0)
 					throw new DatabaseException("Пользователь с таким ID не найден.");
-			} catch (PostgresException e) when (e.SqlState == PostgresErrorCodes.ForeignKeyViolation) {
+			} catch (PostgresException e) when (e.SqlState == PostgresErrorCodes.RestrictViolation) {
 				throw new DatabaseException("У пользователя имеются заказы.");
 			}
 		}
@@ -150,7 +150,7 @@
 				parameters.Add("Role", role);
 			}
 
-			return Database.Connection.Query<User>($"SELECT * FROM users WHERE {string.Join(" AND ", clauses)};", parameters).ToArray();
+			return Database.Connection.Query<User>($"SELECT * FROM users WHERE {(clauses.Count > 0 ? string.Join(" AND ", clauses) : "TRUE")};", parameters).ToArray();
 		}
 	}
 }

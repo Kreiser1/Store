@@ -192,11 +192,11 @@
 							<TextBlock
 								FontSize="15"
 								FontWeight="Bold"
-								Text="{Binding Username, TargetNullValue='Без имени'}" />
+								Text="{Binding Name, TargetNullValue='...'}" />
 							<TextBlock
 								FontSize="12"
 								Foreground="Gray"
-								Text="{Binding Role, StringFormat='Роль: {0}', TargetNullValue='Пользователь'}" />
+								Text="{Binding Role, StringFormat='Роль: {0}', TargetNullValue='Клиент'}" />
 						</StackPanel>
 
 						<Button

@@ -39,7 +39,7 @@
 					} else
 						MessageBox.Show("Получены некорректные данные профиля.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
 				} else
-					MessageBox.Show("Не удалось загрузить профиль.", response.StatusCode.ToString(), MessageBoxButton.OK, MessageBoxImage.Hand);
+					MessageBox.Show("Не удалось загрузить профиль.", response.StatusCode.ToString(), MessageBoxButton.OK, MessageBoxImage.Error);
 			} catch (HttpRequestException) {
 				MessageBox.Show("Не удалось подключиться к серверу.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
 			}

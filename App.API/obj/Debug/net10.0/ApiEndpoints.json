@@ -107,6 +107,22 @@
     "ContainingType": "App.API.API\u002B\u003C\u003Ec",
     "Method": "\u003CInitialize\u003Eb__2_15",
     "RelativePath": "api/orders",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "App.API.API\u002B\u003C\u003Ec",
+    "Method": "\u003CInitialize\u003Eb__2_16",
+    "RelativePath": "api/orders",
     "HttpMethod": "POST",
     "IsController": false,
     "Order": 0,
@@ -127,7 +143,7 @@
   },
   {
     "ContainingType": "App.API.API\u002B\u003C\u003Ec",
-    "Method": "\u003CInitialize\u003Eb__2_16",
+    "Method": "\u003CInitialize\u003Eb__2_17",
     "RelativePath": "api/orders/{id:int}",
     "HttpMethod": "PUT",
     "IsController": false,
@@ -154,7 +170,7 @@
   },
   {
     "ContainingType": "App.API.API\u002B\u003C\u003Ec",
-    "Method": "\u003CInitialize\u003Eb__2_17",
+    "Method": "\u003CInitialize\u003Eb__2_18",
     "RelativePath": "api/orders/{id:int}",
     "HttpMethod": "DELETE",
     "IsController": false,

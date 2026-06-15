@@ -64,49 +64,49 @@
 				<TextBox
 					Name="NameTextBox"
 					Height="32"
-					Margin="5,0,5,5"
+					Margin="5,0,10,5"
 					Padding="5,0"
 					VerticalAlignment="Stretch"
 					VerticalContentAlignment="Center"
 					MaxLength="50" />
 
 				<TextBlock
-					Margin="5,0,5,3"
+					Margin="5,0,10,3"
 					FontSize="14"
 					Foreground="#666666"
 					Text="Цена *" />
 				<TextBox
 					Name="PriceTextBox"
 					Height="32"
-					Margin="5,0,5,5"
+					Margin="5,0,10,5"
 					Padding="5,0"
 					VerticalAlignment="Stretch"
 					VerticalContentAlignment="Center"
 					MaxLength="50" />
 
 				<TextBlock
-					Margin="5,0,5,3"
+					Margin="5,0,10,3"
 					FontSize="14"
 					Foreground="#666666"
 					Text="Количество *" />
 				<TextBox
 					Name="CountTextBox"
 					Height="32"
-					Margin="5,0,5,5"
+					Margin="5,0,10,5"
 					Padding="5,0"
 					VerticalAlignment="Stretch"
 					VerticalContentAlignment="Center"
 					MaxLength="50" />
 
 				<TextBlock
-					Margin="5,0,5,3"
+					Margin="5,0,10,3"
 					FontSize="14"
 					Foreground="#666666"
 					Text="Описание" />
 				<TextBox
 					Name="DescriptionTextBox"
 					Height="128"
-					Margin="5,0,5,5"
+					Margin="5,0,10,5"
 					Padding="5,5"
 					VerticalAlignment="Stretch"
 					AcceptsReturn="True"
@@ -116,56 +116,56 @@
 					VerticalScrollBarVisibility="Auto" />
 
 				<TextBlock
-					Margin="5,0,5,3"
+					Margin="5,0,10,3"
 					FontSize="14"
 					Foreground="#666666"
 					Text="Единица измерения" />
 				<TextBox
 					Name="UnitTextBox"
 					Height="32"
-					Margin="5,0,5,5"
+					Margin="5,0,10,5"
 					Padding="5,0"
 					VerticalAlignment="Stretch"
 					VerticalContentAlignment="Center"
 					MaxLength="50" />
 
 				<TextBlock
-					Margin="5,0,5,3"
+					Margin="5,0,10,3"
 					FontSize="14"
 					Foreground="#666666"
 					Text="Производитель" />
 				<TextBox
 					Name="ManufacturerTextBox"
 					Height="32"
-					Margin="5,0,5,5"
+					Margin="5,0,10,5"
 					Padding="5,0"
 					VerticalAlignment="Stretch"
 					VerticalContentAlignment="Center"
 					MaxLength="50" />
 
 				<TextBlock
-					Margin="5,0,5,3"
+					Margin="5,0,10,3"
 					FontSize="14"
 					Foreground="#666666"
 					Text="Поставщик" />
 				<TextBox
 					Name="ProviderTextBox"
 					Height="32"
-					Margin="5,0,5,5"
+					Margin="5,0,10,5"
 					Padding="5,0"
 					VerticalAlignment="Stretch"
 					VerticalContentAlignment="Center"
 					MaxLength="50" />
 
 				<TextBlock
-					Margin="5,0,5,3"
+					Margin="5,0,10,3"
 					FontSize="14"
 					Foreground="#666666"
 					Text="Скидка %" />
 				<TextBox
 					Name="DiscountTextBox"
 					Height="32"
-					Margin="5,0,5,5"
+					Margin="5,0,10,5"
 					Padding="5,0"
 					VerticalAlignment="Stretch"
 					VerticalContentAlignment="Center"
@@ -174,7 +174,7 @@
 				<Button
 					Name="FinishButton"
 					Height="36"
-					Margin="5,5,5,5"
+					Margin="5,5,10,5"
 					HorizontalAlignment="Stretch"
 					Background="#007ACC"
 					BorderThickness="0"

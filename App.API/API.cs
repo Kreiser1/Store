@@ -142,7 +142,7 @@ internal static class API {
 				Users.Delete(id, force);
 				return Results.Ok();
 			} catch (DatabaseException e) {
-				return Results.InternalServerError(new ErrorResponse(e.Message));
+				return Results.BadRequest(new ErrorResponse(e.Message));
 			}
 		});
 
@@ -182,7 +182,7 @@ internal static class API {
 				Products.Delete(id, force);
 				return Results.Ok();
 			} catch (DatabaseException e) {
-				return Results.InternalServerError(new ErrorResponse(e.Message));
+				return Results.BadRequest(new ErrorResponse(e.Message));
 			}
 		});
 
@@ -201,6 +201,26 @@ internal static class API {
 			}
 		});
 
+		app.MapGet("/api/orders", [Authorize(Roles = $"{Role.Admin},{Role.Manager}")] () => {
+			try {
+				var orders = Orders.Query();
+					
+				return Results.Json(orders.Select(order => new OrderResponse(order.Id, order.UserId, order.Products.Select((product) => {
+					var _product = Products.Get(product.Id);
+
+					return _product is null
+						? new ProductResponse(int.MinValue, "...", 0, 0, null, null, null, null, null, null, null)
+						: new ProductResponse(product.Id, _product.Name, _product.Count, _product.Price, _product.Unit, _product.Image,
+					_product.Description, _product.Manufacturer, _product.Provider, _product.Discount,
+					Products.GetCategories(product.Id).Select(category => new CategoryResponse(category.Id, category.Name)).ToArray());
+				}).ToArray())).ToArray(), statusCode: 201);
+			} catch (DatabaseException e) {
+				return Results.InternalServerError(new ErrorResponse(e.Message));
+			} catch (ValidationError e) {
+				return Results.UnprocessableEntity(new ErrorResponse(e.Message));
+			}
+		});
+
 		app.MapPost("/api/orders", [Authorize] (OrderCreateRequest request, ClaimsPrincipal user) => {
 			if (!IsAdmin(user) && GetUserId(user) != request.UserId)
 				return Results.Forbid();
@@ -212,10 +232,9 @@ internal static class API {
 					request.Products.Select((product) => {
 						var _product = Products.Get(product.Id);
 
-						if (_product is null)
-							return new ProductResponse(int.MinValue, "...", 0, 0, null, null, null, null, null, null, null);
-
-						return new ProductResponse(product.Id, _product.Name, _product.Count, _product.Price, _product.Unit, _product.Image,
+						return _product is null
+							? new ProductResponse(int.MinValue, "...", 0, 0, null, null, null, null, null, null, null)
+							: new ProductResponse(product.Id, _product.Name, _product.Count, _product.Price, _product.Unit, _product.Image,
 						_product.Description, _product.Manufacturer, _product.Provider, _product.Discount,
 						Products.GetCategories(product.Id).Select(category => new CategoryResponse(category.Id, category.Name)).ToArray());
 					}).ToArray()), statusCode: 201);

@@ -19,9 +19,4 @@
 		</Resource>
 	</ItemGroup>
 
-	<ItemGroup>
-		<ProjectReference Include="..\App.API\App.API.csproj" />
-		<ProjectReference Include="..\App.Validation\App.Validation.csproj" />
-	</ItemGroup>
-
 </Project>

@@ -21,7 +21,7 @@ namespace App.UI;
 
 public record Product : ProductResponse {
 
-	public Product(int Id, string Name, int Count, int Price, string? Unit, byte[]? Image, string? Description, string? Manufacturer, string? Provider, float? Discount, CategoryResponse[]? Categories) : base(Id, Name, Count, Price, Unit, Image ?? Catalogue.Placeholder, Description, Manufacturer, Provider, Discount, Categories) {}
+	public Product(int Id, string Name, int Count, int Price, string? Unit, byte[]? Image, string? Description, string? Manufacturer, string? Provider, float? Discount, CategoryResponse[]? Categories) : base(Id, Name, Count, Price, Unit, Image ?? Catalogue.Placeholder, Description, Manufacturer, Provider, Discount, Categories) { }
 
 	public virtual bool Equals(Product? other) => other is not null && Id == other.Id;
 
@@ -61,7 +61,7 @@ public static class Catalogue {
 				if (Products is null)
 					MessageBox.Show("Получены некорректные данные каталога.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
 			} else
-				MessageBox.Show("Не удалось загрузить каталог.", response.StatusCode.ToString(), MessageBoxButton.OK, MessageBoxImage.Hand);
+				MessageBox.Show("Не удалось загрузить каталог.", response.StatusCode.ToString(), MessageBoxButton.OK, MessageBoxImage.Error);
 		} catch (HttpRequestException) {
 			MessageBox.Show("Не удалось подключиться к серверу.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
 		}
@@ -88,7 +88,7 @@ public static class Catalogue {
 				if (Products is null)
 					MessageBox.Show("Получены некорректные данные каталога.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
 			} else
-				MessageBox.Show("Не удалось загрузить каталог.", response.StatusCode.ToString(), MessageBoxButton.OK, MessageBoxImage.Hand);
+				MessageBox.Show("Не удалось загрузить каталог.", response.StatusCode.ToString(), MessageBoxButton.OK, MessageBoxImage.Error);
 		} catch (HttpRequestException) {
 			MessageBox.Show("Не удалось подключиться к серверу.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
 		}
@@ -98,13 +98,19 @@ public static class Catalogue {
 }
 
 public partial class Main : Window {
-	private ProfileEditor profileEditor = new();
-	private Cart cart = new();
+	internal ProfileEditor profileEditor = new();
+	internal Cart cart = new();
 
 	public Main() {
 		InitializeComponent();
 
 		profileEditor.IsVisibleChanged += async (s, e) => { if (!(bool)e.NewValue) UsernameTextBox.Text = Profile.Name ?? "..."; };
+		
+		SearchTextBox.KeyDown += async (s, e) => {
+			if (e.Key == Key.Enter)
+				if (SearchTextBox.Text.IsWhiteSpace() || SearchTextBox.Text.Length >= 3)
+					CatalogueListBox.ItemsSource = await Catalogue.search(SearchTextBox.Text);
+		};
 	}
 
 	protected override void OnClosed(EventArgs e) {
@@ -123,17 +129,15 @@ public partial class Main : Window {
 		if (Profile.Id is null)
 			EditProfileButton.Visibility = Visibility.Collapsed;
 
+		if (Profile.Role != Role.Admin) {
+			AddButton.Visibility = Visibility.Collapsed;
+			AdminButton.Visibility = Visibility.Collapsed;
+		}
+
 		if (new[] { Role.Admin, Role.Manager }.Contains(Profile.Role)) {
 			RefreshButton.Visibility = Visibility.Collapsed;
-		} else {
-			AddButton.Visibility = Visibility.Collapsed;
-
-			if (Profile.Role != Role.Admin) {
-				AddButton.Visibility = Visibility.Collapsed;
-				AdminButton.Visibility = Visibility.Collapsed;
-				SearchTextBox.Visibility = Visibility.Collapsed;
-			}
-		}
+		} else
+			SearchTextBox.Visibility = Visibility.Collapsed;
 
 		CatalogueListBox.ItemsSource = await Catalogue.load();
 	}
@@ -195,7 +199,7 @@ public partial class Main : Window {
 
 	private async void AddButton_Click(object sender, RoutedEventArgs e) {
 		AddButton.IsEnabled = false;
-		
+
 		var productEditor = new ProductEditor();
 		productEditor.Closed += async (s, e) => AddButton.IsEnabled = true;
 		productEditor.Show();
@@ -215,7 +219,7 @@ public partial class Main : Window {
 		AdminButton.IsEnabled = false;
 
 		var admin = new Admin();
-		admin.Closed += async (s, e) => AddButton.IsEnabled = true;
+		admin.Closed += async (s, e) => AdminButton.IsEnabled = true;
 		admin.Show();
 	}
 }
