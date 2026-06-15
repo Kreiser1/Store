@@ -34,6 +34,7 @@
 				Name="AddButton"
 				Width="52"
 				Height="32"
+				Margin="5,5,5,5"
 				HorizontalAlignment="Right"
 				Background="#007ACC"
 				BorderThickness="0"
@@ -56,7 +57,7 @@
 				Name="AdminButton"
 				Width="52"
 				Height="32"
-				Margin="0,0,5,0"
+				Margin="5,5,5,5"
 				HorizontalAlignment="Right"
 				Background="Crimson"
 				BorderThickness="0"
@@ -159,10 +160,12 @@
 			Grid.Row="2"
 			Grid.Column="0"
 			Margin="5">
+
 			<Button
 				Name="RefreshButton"
 				Width="52"
 				Height="32"
+				Margin="5,5,5,5"
 				HorizontalAlignment="Right"
 				Background="#007ACC"
 				BorderThickness="0"
@@ -174,23 +177,48 @@
 				FontWeight="SemiBold"
 				Foreground="White" />
 
-			<TextBox
-				Name="SearchTextBox"
+			<Button
+				Name="SortButton"
+				Width="52"
 				Height="32"
-				Margin="0,0,5,0"
-				Padding="5,0"
-				HorizontalAlignment="Stretch"
-				VerticalContentAlignment="Center"
-				MaxLength="100"
-				TextChanged="SearchTextBox_TextChanged" />
+				Margin="5,5,5,5"
+				HorizontalAlignment="Right"
+				Background="#007ACC"
+				BorderThickness="0"
+				Click="SortButton_Click"
+				Content="↕"
+				Cursor="Hand"
+				DockPanel.Dock="Right"
+				FontSize="14"
+				FontWeight="SemiBold"
+				Foreground="White" />
+
+			<StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Center">
+				<TextBox
+					Name="SearchTextBox"
+					Height="32"
+					Margin="0,0,5,0"
+					Padding="5,0"
+					HorizontalAlignment="Stretch"
+					VerticalContentAlignment="Center"
+					MaxLength="100"
+					TextChanged="SearchTextBox_TextChanged" />
+
+				<ComboBox
+					Name="ProvidersCombobox"
+					Height="32"
+					Margin="0,5,5,0"
+					HorizontalAlignment="Stretch"
+					SelectionChanged="ProvidersCombobox_Selected" />
+			</StackPanel>
 		</DockPanel>
 
 		<GridSplitter
 			Grid.Row="0"
 			Grid.RowSpan="3"
 			Grid.Column="1"
-			Width="1"
-			HorizontalAlignment="Stretch"
+			Width="3"
+			HorizontalAlignment="Center"
 			VerticalAlignment="Stretch" />
 
 		<DockPanel
@@ -228,8 +256,26 @@
 			Margin="5"
 			HorizontalAlignment="Stretch"
 			VerticalAlignment="Stretch"
+			HorizontalContentAlignment="Stretch"
 			ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-			ScrollViewer.VerticalScrollBarVisibility="Auto" />
+			ScrollViewer.VerticalScrollBarVisibility="Auto">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<StackPanel>
+						<StackPanel VerticalAlignment="Center">
+							<TextBlock
+								FontSize="15"
+								FontWeight="Bold"
+								Text="{Binding Id, StringFormat='Заказ #{0}'}" />
+							<TextBlock
+								FontSize="13"
+								FontWeight="SemiBold"
+								Text="{Binding TotalCost, StringFormat='Сумма: {0} руб.'}" />
+						</StackPanel>
+					</StackPanel>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
 
 		<DockPanel
 			Grid.Row="2"
@@ -239,6 +285,7 @@
 				Name="CartButton"
 				Width="52"
 				Height="32"
+				Margin="5,5,5,5"
 				HorizontalAlignment="Right"
 				Background="#007ACC"
 				BorderThickness="0"
@@ -250,6 +297,4 @@
 				Foreground="White" />
 		</DockPanel>
 	</Grid>
-
-
 </Window>

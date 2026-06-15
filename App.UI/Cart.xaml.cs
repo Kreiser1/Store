@@ -46,6 +46,7 @@
 
 				if (response.IsSuccessStatusCode) {
 					Products.Clear();
+					Update();
 					Close();
 				} else
 					MessageBox.Show("Не удалось сделать заказ.", response.StatusCode.ToString(), MessageBoxButton.OK, MessageBoxImage.Hand);

@@ -11,7 +11,9 @@
 	public static class Orders {
 		public static Order New(int userId, (int Id, int Count)[] products) {
 			try {
-				Order order = Database.Connection.QueryFirst<Order>(@"
+				using var connection = Database.Connection;
+
+				Order order = connection.QueryFirst<Order>(@"
 					INSERT INTO orders (user_id) VALUES (@UserId) RETURNING *;
 					", new { UserId = userId });
 
@@ -26,7 +28,7 @@
 
 					Products.Update(Id, count: product.Count - Count);
 
-					Database.Connection.Execute(@"
+					connection.Execute(@"
 						INSERT INTO order_products (order_id, product_id, count) VALUES (@OrderId, @ProductId, @Count);
 						", new { OrderId = order.Id, ProductId = Id, Count = Count });
 				}
@@ -39,7 +41,9 @@
 		}
 
 		public static (Product Product, int Count)[] GetProducts(int id) {
-			var products = Database.Connection.Query<(int, int)>(@"
+			using var connection = Database.Connection;
+			
+			var products = connection.Query<(int, int)>(@"
 				SELECT product_id, count FROM order_products WHERE order_id = @Id;
 				", new { Id = id });
 
@@ -59,7 +63,9 @@
 		}
 
 		public static Order? Get(int id) {
-			Order? order = Database.Connection.QueryFirstOrDefault<Order>(@"
+			using var connection = Database.Connection;
+			
+			Order? order = connection.QueryFirstOrDefault<Order>(@"
 					SELECT * FROM orders WHERE id = @Id;
 				", new { Id = id });
 
@@ -82,11 +88,12 @@
 				parameters.Add("UserId", userId);
 			}
 
-			using var transaction = Database.Connection.BeginTransaction();
+			using var connection = Database.Connection;
+			using var transaction = connection.BeginTransaction();
 
 			try {
 				if (clauses.Count > 0) {
-					int rowsAffected = Database.Connection.Execute($"UPDATE orders SET {string.Join(", ", clauses)} WHERE id = @Id;", parameters, transaction);
+					int rowsAffected = connection.Execute($"UPDATE orders SET {string.Join(", ", clauses)} WHERE id = @Id;", parameters, transaction);
 
 					if (rowsAffected == 0) {
 						transaction.Rollback();
@@ -95,10 +102,10 @@
 				}
 
 				if (products is not null) {
-					Database.Connection.Execute("DELETE FROM order_products WHERE order_id = @OrderId;", new { OrderId = id }, transaction);
+					connection.Execute("DELETE FROM order_products WHERE order_id = @OrderId;", new { OrderId = id }, transaction);
 
 					foreach (var (productId, count) in products)
-						Database.Connection.Execute(@"
+						connection.Execute(@"
 							INSERT INTO order_products (order_id, product_id, count) 
 							VALUES (@OrderId, @ProductId, @Count);
 							", new { OrderId = id, ProductId = productId, Count = count }, transaction);
@@ -111,7 +118,9 @@
 		}
 
 		public static void Delete(int id) {
-			int rowsAffected = Database.Connection.Execute(@"
+			using var connection = Database.Connection;
+			
+			int rowsAffected = connection.Execute(@"
 				DELETE FROM orders WHERE id = @Id;
 				", new { Id = id });
 
@@ -120,7 +129,9 @@
 		}
 
 		public static Order[] Query(int? userId = null) {
-			Order[] orders = Database.Connection.Query<Order>($@"
+			using var connection = Database.Connection;
+		
+			Order[] orders = connection.Query<Order>($@"
 				SELECT * FROM orders {(userId is not null ? "WHERE user_id = @UserId" : "")};
 				", userId is not null ? new { UserId = userId } : null).ToArray();
 

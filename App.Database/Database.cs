@@ -17,16 +17,21 @@ namespace App.Database {
 	}
 
 	public static class Database {
-		private static NpgsqlConnection? connection;
-		internal static NpgsqlConnection Connection =>
-					connection is null ? throw new DatabaseException("База данных не подключена.")
-					: connection;
+		private static string connectionString = "";
+		internal static NpgsqlConnection Connection {
+			get {
+				NpgsqlConnection connection = new(connectionString);
+				connection.Open();
+				return connection;
+			}
+		}
+
 		public static void Connect(string connectionString) {
 			DefaultTypeMap.MatchNamesWithUnderscores = true;
+			Database.connectionString = connectionString;
 
 			try {
-				connection = new(connectionString);
-				connection.Open();
+				using var connection = Connection;
 
 				connection.Execute(@"
 					CREATE TABLE IF NOT EXISTS categories (

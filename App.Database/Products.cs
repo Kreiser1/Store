@@ -30,7 +30,9 @@
 			if (discount is not null)
 				Validation.Validator.Validate(discount, (ValidationAttribute[])typeof(Product).GetProperty(nameof(Product.Discount)).GetCustomAttributes(typeof(ValidationAttribute), true));
 
-			var product = Database.Connection.QueryFirst<Product>(@"
+			using var connection = Database.Connection;
+
+			var product = connection.QueryFirst<Product>(@"
 					INSERT INTO products (name, count, price, unit, description, image, manufacturer, provider, discount)
 					VALUES (@Name, @Count, @Price, @Unit, @Description, @Image, @Manufacturer, @Provider, @Discount)
 					RETURNING *;
@@ -45,7 +47,7 @@
 			if (categories is not null)
 				foreach (var category in categories)
 					try {
-						Database.Connection.Execute(@"
+						connection.Execute(@"
 						INSERT INTO product_categories (product_id, category_id) VALUES (@ProductId, @CategoryId);
 						", new { ProductId = product.Id, CategoryId = category });
 					} catch (PostgresException e) when (e.SqlState == PostgresErrorCodes.ForeignKeyViolation) {
@@ -53,7 +55,6 @@
 					}
 
 			product.Categories = categories;
-
 			return product;
 		}
 
@@ -92,10 +93,11 @@
 			if (provider is not null) { clauses.Add("provider = @Provider"); parameters.Add("Provider", provider); }
 			if (discount is not null) { clauses.Add("discount = @Discount"); parameters.Add("Discount", discount); }
 
-			using var transaction = Database.Connection.BeginTransaction();
+			using var connection = Database.Connection;
+			using var transaction = connection.BeginTransaction();
 
 			if (clauses.Count > 0) {
-				int rowsAffected = Database.Connection.Execute($"UPDATE products SET {string.Join(", ", clauses)} WHERE id = @Id;", parameters, transaction);
+				int rowsAffected = connection.Execute($"UPDATE products SET {string.Join(", ", clauses)} WHERE id = @Id;", parameters, transaction);
 
 				if (rowsAffected == 0) {
 					transaction.Rollback();
@@ -104,11 +106,11 @@
 			}
 
 			if (categories is not null) {
-				Database.Connection.Execute("DELETE FROM product_categories WHERE product_id = @ProductId;", new { ProductId = id }, transaction);
+				connection.Execute("DELETE FROM product_categories WHERE product_id = @ProductId;", new { ProductId = id }, transaction);
 
 				try {
 					foreach (var category in categories)
-						Database.Connection.Execute(@"
+						connection.Execute(@"
 							INSERT INTO product_categories (product_id, category_id) 
 							VALUES (@ProductId, @CategoryId);
 							", new { ProductId = id, CategoryId = category }, transaction);
@@ -122,13 +124,15 @@
 		}
 
 		public static void Delete(int id, bool force = false) {
+			using var connection = Database.Connection;
+
 			if (force)
-				Database.Connection.Execute(@"
+				connection.Execute(@"
 					DELETE FROM order_products WHERE product_id = @Id;
 					", new { Id = id });
 
 			try {
-				int rowsAffected = Database.Connection.Execute(@"
+				int rowsAffected = connection.Execute(@"
 					DELETE FROM products WHERE id = @Id;
 					", new { Id = id });
 
@@ -140,7 +144,9 @@
 		}
 
 		public static Category[] GetCategories(int id) {
-			return Database.Connection.Query<Category>(@"
+			using var connection = Database.Connection;
+
+			return connection.Query<Category>(@"
 				SELECT categories.id, categories.name FROM product_categories
 				JOIN categories ON categories.id = product_categories.category_id
 				WHERE product_categories.product_id = @Id;",
@@ -148,7 +154,9 @@
 		}
 
 		public static Product? Get(int id) {
-			Product? product = Database.Connection.QueryFirstOrDefault<Product>(@"
+			using var connection = Database.Connection;
+
+			Product? product = connection.QueryFirstOrDefault<Product>(@"
 				SELECT * FROM products WHERE id = @Id;
 				", new { Id = id });
 
@@ -227,7 +235,9 @@
 
 			string where = clauses.Count > 0 ? string.Join(" OR ", clauses) : "TRUE";
 
-			return Database.Connection.Query<Product>($@"
+			using var connection = Database.Connection;
+
+			return connection.Query<Product>($@"
 				SELECT products.*, COALESCE(array_agg(category_id) FILTER (WHERE category_id IS NOT NULL), '{{}}')::int[] as categories
 				FROM products
 				LEFT JOIN product_categories ON products.id = product_categories.product_id

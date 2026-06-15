@@ -137,9 +137,9 @@ internal static class API {
 			}
 		});
 
-		app.MapDelete("/api/users/{id:int}", [Authorize(Roles = Role.Admin)] (int id, bool force = false) => {
+		app.MapDelete("/api/users/{id:int}", [Authorize(Roles = Role.Admin)] (int id) => {
 			try {
-				Users.Delete(id, force);
+				Users.Delete(id, true);
 				return Results.Ok();
 			} catch (DatabaseException e) {
 				return Results.BadRequest(new ErrorResponse(e.Message));
@@ -177,9 +177,9 @@ internal static class API {
 			}
 		});
 
-		app.MapDelete("/api/products/{id:int}", [Authorize(Roles = Role.Admin)] (int id, bool force = false) => {
+		app.MapDelete("/api/products/{id:int}", [Authorize(Roles = Role.Admin)] (int id) => {
 			try {
-				Products.Delete(id, force);
+				Products.Delete(id, true);
 				return Results.Ok();
 			} catch (DatabaseException e) {
 				return Results.BadRequest(new ErrorResponse(e.Message));
@@ -196,6 +196,31 @@ internal static class API {
 					product.Description, product.Manufacturer, product.Provider, product.Discount,
 					Products.GetCategories(product.Id).Select(category => new CategoryResponse(category.Id, category.Name)).ToArray()
 				)));
+			} catch (ValidationError e) {
+				return Results.UnprocessableEntity(new ErrorResponse(e.Message));
+			}
+		});
+
+		app.MapGet("/api/orders/mine", [Authorize] (ClaimsPrincipal user) => {
+			int? userId = GetUserId(user);
+
+			if (userId is null)
+				return Results.Unauthorized();
+			
+			try {
+				var orders = Orders.Query(userId);
+
+				return Results.Json(orders.Select(order => new OrderResponse(order.Id, order.UserId, order.Products.Select((product) => {
+					var _product = Products.Get(product.Id);
+
+					return _product is null
+						? new ProductResponse(int.MinValue, "...", 0, 0, null, null, null, null, null, null, null)
+						: new ProductResponse(product.Id, _product.Name, _product.Count, _product.Price, _product.Unit, _product.Image,
+					_product.Description, _product.Manufacturer, _product.Provider, _product.Discount,
+					Products.GetCategories(product.Id).Select(category => new CategoryResponse(category.Id, category.Name)).ToArray());
+				}).ToArray())).ToArray(), statusCode: 201);
+			} catch (DatabaseException e) {
+				return Results.InternalServerError(new ErrorResponse(e.Message));
 			} catch (ValidationError e) {
 				return Results.UnprocessableEntity(new ErrorResponse(e.Message));
 			}

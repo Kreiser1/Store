@@ -22,7 +22,9 @@
 			Validation.Validator.Validate(password, (ValidationAttribute[])typeof(User).GetProperty(nameof(User.Password)).GetCustomAttributes(typeof(ValidationAttribute), true));
 
 			try {
-				var user = Database.Connection.QueryFirst<User>(@"
+				using var connection = Database.Connection;
+
+				var user = connection.QueryFirst<User>(@"
 					INSERT INTO users (login, password, role, name) VALUES (@Login, @Password, @Role, @Name)
 					RETURNING *;
 					", new {
@@ -42,7 +44,9 @@
 		public static User? Login(string login, string password) {
 			Validation.Validator.Validate(login, (ValidationAttribute[])typeof(User).GetProperty(nameof(User.Login)).GetCustomAttributes(typeof(ValidationAttribute), true));
 
-			var user = Database.Connection.QueryFirstOrDefault<User>(@"
+			using var connection = Database.Connection;
+
+			var user = connection.QueryFirstOrDefault<User>(@"
 				SELECT * FROM users WHERE login = @Login;
 				", new { Login = login });
 
@@ -97,7 +101,9 @@
 				return;
 
 			try {
-				int rowsAffected = Database.Connection.Execute($"UPDATE users SET {string.Join(", ", clauses)} WHERE id = @Id;", parameters);
+				using var connection = Database.Connection;
+
+				int rowsAffected = connection.Execute($"UPDATE users SET {string.Join(", ", clauses)} WHERE id = @Id;", parameters);
 
 				if (rowsAffected == 0)
 					throw new DatabaseException($"Пользователь с ID {id} не найден.");
@@ -107,21 +113,25 @@
 		}
 
 		public static User? Get(int id) {
-			return Database.Connection.QueryFirstOrDefault<User>(@"
+			using var connection = Database.Connection;
+
+			return connection.QueryFirstOrDefault<User>(@"
 				SELECT * FROM users WHERE id = @Id;
 				", new { Id = id });
 		}
 
 		public static void Delete(int id, bool force = false) {
+			using var connection = Database.Connection;
+			
 			if (force)
-				Database.Connection.Execute(@"
+				connection.Execute(@"
 					DELETE FROM orders WHERE user_id = @Id;
 					", new { Id = id });
 
 			try {
-				int rowsAffected = Database.Connection.Execute(@"
-				DELETE FROM users WHERE id = @Id;
-				", new { Id = id });
+				int rowsAffected = connection.Execute(@"
+					DELETE FROM users WHERE id = @Id;
+					", new { Id = id });
 
 				if (rowsAffected == 0)
 					throw new DatabaseException("Пользователь с таким ID не найден.");
@@ -150,7 +160,9 @@
 				parameters.Add("Role", role);
 			}
 
-			return Database.Connection.Query<User>($"SELECT * FROM users WHERE {(clauses.Count > 0 ? string.Join(" AND ", clauses) : "TRUE")};", parameters).ToArray();
+			using var connection = Database.Connection;
+
+			return connection.Query<User>($"SELECT * FROM users WHERE {(clauses.Count > 0 ? string.Join(" AND ", clauses) : "TRUE")};", parameters).ToArray();
 		}
 	}
 }

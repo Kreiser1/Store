@@ -30,6 +30,18 @@ public record Product : ProductResponse {
 	public int RealPrice => Discount is not null ? (int)MathF.Round(Price - Price * (Discount.Value / 100f)) : Price;
 };
 
+public record Order : OrderResponse {
+	public int TotalCost {
+		get {
+			int cost = 0;
+			foreach (var product in Products)
+				cost += product.Count * product.Price;
+			return cost;
+		}
+	}
+	public Order(int Id, int UserId, ProductResponse[] Products) : base(Id, UserId, Products) { }
+};
+
 public static class Catalogue {
 	public static readonly byte[] Placeholder;
 
@@ -95,6 +107,31 @@ public static class Catalogue {
 
 		return Products;
 	}
+
+	internal static async Task<Product[]?> filter(string? provider = null) {
+		if (provider is null || provider.IsWhiteSpace())
+			return await load();
+
+		Products = null;
+
+		try {
+			var request = new ProductQueryRequest(Provider: provider);
+
+			var response = await App_.API.PostAsJsonAsync("products/query", request);
+
+			if (response.IsSuccessStatusCode) {
+				Products = await response.Content.ReadFromJsonAsync<Product[]>();
+
+				if (Products is null)
+					MessageBox.Show("Получены некорректные данные каталога.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+			} else
+				MessageBox.Show("Не удалось загрузить каталог.", response.StatusCode.ToString(), MessageBoxButton.OK, MessageBoxImage.Error);
+		} catch (HttpRequestException) {
+			MessageBox.Show("Не удалось подключиться к серверу.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+		}
+
+		return Products;
+	}
 }
 
 public partial class Main : Window {
@@ -105,12 +142,16 @@ public partial class Main : Window {
 		InitializeComponent();
 
 		profileEditor.IsVisibleChanged += async (s, e) => { if (!(bool)e.NewValue) UsernameTextBox.Text = Profile.Name ?? "..."; };
-		
+
 		SearchTextBox.KeyDown += async (s, e) => {
 			if (e.Key == Key.Enter)
-				if (SearchTextBox.Text.IsWhiteSpace() || SearchTextBox.Text.Length >= 3)
+				if (SearchTextBox.Text.IsWhiteSpace() || SearchTextBox.Text.Length >= 3) {
 					CatalogueListBox.ItemsSource = await Catalogue.search(SearchTextBox.Text);
+					ProvidersCombobox.ItemsSource = Catalogue.Products.Select(product => product.Provider).Append("").Distinct().ToArray();
+				}
 		};
+
+		cart.Closing += async (s, e) => await loadOrders();
 	}
 
 	protected override void OnClosed(EventArgs e) {
@@ -136,10 +177,16 @@ public partial class Main : Window {
 
 		if (new[] { Role.Admin, Role.Manager }.Contains(Profile.Role)) {
 			RefreshButton.Visibility = Visibility.Collapsed;
-		} else
+		} else {
 			SearchTextBox.Visibility = Visibility.Collapsed;
+			ProvidersCombobox.Visibility = Visibility.Collapsed;
+			SortButton.Visibility = Visibility.Collapsed;
+		}
 
 		CatalogueListBox.ItemsSource = await Catalogue.load();
+		ProvidersCombobox.ItemsSource = Catalogue.Products.Select(product => product.Provider).Append("").Distinct().ToArray();
+
+		await loadOrders();
 	}
 
 	private void AddToCartButton_Click(object sender, RoutedEventArgs e) {
@@ -176,7 +223,23 @@ public partial class Main : Window {
 		profileEditor.Show();
 	}
 
-	private void CartButton_Click(object sender, RoutedEventArgs e) {
+	private async Task loadOrders() {
+		try {
+			var response = await App_.API.GetAsync("orders/mine");
+
+			if (response.IsSuccessStatusCode) {
+				OrdersListBox.ItemsSource = await response.Content.ReadFromJsonAsync<Order[]>();
+
+				if (OrdersListBox.ItemsSource is null)
+					MessageBox.Show("Получены неверные данные о заказах.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+			} else
+				MessageBox.Show("Не удалось загрузить заказы.", response.StatusCode.ToString(), MessageBoxButton.OK, MessageBoxImage.Error);
+		} catch (HttpRequestException) {
+			MessageBox.Show("Не удалось подключиться к серверу.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+		}
+	}
+
+	private async void CartButton_Click(object sender, RoutedEventArgs e) {
 		if (Profile.Id is null) {
 			new Login().Show();
 			Close();
@@ -221,5 +284,18 @@ public partial class Main : Window {
 		var admin = new Admin();
 		admin.Closed += async (s, e) => AdminButton.IsEnabled = true;
 		admin.Show();
+	}
+
+	private async void ProvidersCombobox_Selected(object sender, SelectionChangedEventArgs e) {
+		CatalogueListBox.ItemsSource = await Catalogue.filter(ProvidersCombobox.SelectedValue.ToString());
+	}
+
+	private bool sortMode = false;
+
+	private async void SortButton_Click(object sender, RoutedEventArgs e) {
+		sortMode = !sortMode;
+
+		Array.Sort(Catalogue.Products, (x, y) => (sortMode ? x.Count.CompareTo(y.Count) : y.Count.CompareTo(x.Count)));
+		CatalogueListBox.ItemsSource = Catalogue.Products.ToArray();
 	}
 }

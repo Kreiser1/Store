@@ -10,19 +10,25 @@
 		public static Category New(string name) {
 			Validation.Validator.Validate(name, (ValidationAttribute[])typeof(Category).GetProperty(nameof(Category.Name)).GetCustomAttributes(typeof(ValidationAttribute), true));
 
-			return Database.Connection.QueryFirst<Category>(@"
+			using var connection = Database.Connection;
+
+			return connection.QueryFirst<Category>(@"
 				INSERT INTO categories (name) VALUES (@Name) RETURNING *;
 				", new { Name = name });
 		}
 
 		public static Category? Get(int id) {
-			return Database.Connection.QueryFirstOrDefault<Category>(@"
+			using var connection = Database.Connection;
+
+			return connection.QueryFirstOrDefault<Category>(@"
 				SELECT * FROM categories WHERE id = @Id;
 				", new { Id = id });
 		}
 
 		public static void Delete(int id) {
-			int rowsAffected = Database.Connection.Execute(@"
+			using var connection = Database.Connection;
+
+			int rowsAffected = connection.Execute(@"
 				DELETE FROM categories WHERE id = @Id;
 				", new { Id = id });
 
@@ -31,7 +37,8 @@
 		}
 
 		public static Category[] Query() {
-			return Database.Connection.Query<Category>(@"SELECT * FROM categories;").ToArray();
+			using var connection = Database.Connection;
+			return connection.Query<Category>(@"SELECT * FROM categories;").ToArray();
 		}
 	}
 }

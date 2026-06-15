@@ -37,7 +37,7 @@
 
 					if (response.IsSuccessStatusCode) {
 
-						OrdersListBox.ItemsSource = await response.Content.ReadFromJsonAsync<OrderResponse[]>();
+						OrdersListBox.ItemsSource = await response.Content.ReadFromJsonAsync<Order[]>();
 
 						if (OrdersListBox.ItemsSource is null)
 							MessageBox.Show("Получены неверные данные о заказах.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -56,12 +56,12 @@
 
 					if (response.IsSuccessStatusCode) {
 
-						OrdersListBox.ItemsSource = await response.Content.ReadFromJsonAsync<OrderResponse[]>();
+						UsersListBox.ItemsSource = await response.Content.ReadFromJsonAsync<UserResponse[]>();
 
-						if (OrdersListBox.ItemsSource is null)
-							MessageBox.Show("Получены неверные данные о заказах.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+						if (UsersListBox.ItemsSource is null)
+							MessageBox.Show("Получены неверные данные о пользователях.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
 					} else
-						MessageBox.Show("Не удалось загрузить заказы.", response.StatusCode.ToString(), MessageBoxButton.OK, MessageBoxImage.Error);
+						MessageBox.Show("Не удалось загрузить пользователей.", response.StatusCode.ToString(), MessageBoxButton.OK, MessageBoxImage.Error);
 				} catch (HttpRequestException) {
 					MessageBox.Show("Не удалось подключиться к серверу.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
 				}
@@ -100,12 +100,38 @@
 			}
 		}
 
-		private void Button_Click_2(object sender, RoutedEventArgs e) {
+		private async void Button_Click_2(object sender, RoutedEventArgs e) {
+			if (sender is Button button && button.DataContext is UserResponse user) {
+				button.IsEnabled = false;
 
+				try {
+					var response = await App_.API.DeleteAsync($"users/{user.Id}");
+
+					if (response.IsSuccessStatusCode) {
+						await load();
+					} else
+						MessageBox.Show("Не удалось удалить пользователя.", response.StatusCode.ToString(), MessageBoxButton.OK, MessageBoxImage.Hand);
+				} catch (HttpRequestException) {
+					MessageBox.Show("Не удалось подключиться к серверу.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+				}
+			}
 		}
 
-		private void Button_Click_3(object sender, RoutedEventArgs e) {
+		private async void Button_Click_3(object sender, RoutedEventArgs e) {
+			if (sender is Button button && button.DataContext is Order order) {
+				button.IsEnabled = false;
 
+				try {
+					var response = await App_.API.DeleteAsync($"orders/{order.Id}");
+
+					if (response.IsSuccessStatusCode) {
+						await load();
+					} else
+						MessageBox.Show("Не удалось удалить заказ.", response.StatusCode.ToString(), MessageBoxButton.OK, MessageBoxImage.Hand);
+				} catch (HttpRequestException) {
+					MessageBox.Show("Не удалось подключиться к серверу.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+				}
+			}
 		}
 
 		private async void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e) {
