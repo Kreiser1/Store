@@ -224,6 +224,9 @@ public partial class Main : Window {
 	}
 
 	private async Task loadOrders() {
+		if (Profile.Id is null)
+			return;
+
 		try {
 			var response = await App_.API.GetAsync("orders/mine");
 
