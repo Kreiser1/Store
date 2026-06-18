@@ -1,0 +1,299 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Indev\\Store\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{91186705-6DD3-E830-3BB0-5DB7FD7E4B58}|App.UI\\App.UI.csproj|d:\\indev\\store\\app.ui\\cart.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{91186705-6DD3-E830-3BB0-5DB7FD7E4B58}|App.UI\\App.UI.csproj|solutionrelative:app.ui\\cart.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{91186705-6DD3-E830-3BB0-5DB7FD7E4B58}|App.UI\\App.UI.csproj|d:\\indev\\store\\app.ui\\main.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{91186705-6DD3-E830-3BB0-5DB7FD7E4B58}|App.UI\\App.UI.csproj|solutionrelative:app.ui\\main.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{91186705-6DD3-E830-3BB0-5DB7FD7E4B58}|App.UI\\App.UI.csproj|d:\\indev\\store\\app.ui\\cart.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{91186705-6DD3-E830-3BB0-5DB7FD7E4B58}|App.UI\\App.UI.csproj|solutionrelative:app.ui\\cart.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{91186705-6DD3-E830-3BB0-5DB7FD7E4B58}|App.UI\\App.UI.csproj|d:\\indev\\store\\app.ui\\admin.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{91186705-6DD3-E830-3BB0-5DB7FD7E4B58}|App.UI\\App.UI.csproj|solutionrelative:app.ui\\admin.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{91186705-6DD3-E830-3BB0-5DB7FD7E4B58}|App.UI\\App.UI.csproj|d:\\indev\\store\\app.ui\\admin.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{91186705-6DD3-E830-3BB0-5DB7FD7E4B58}|App.UI\\App.UI.csproj|solutionrelative:app.ui\\admin.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{91186705-6DD3-E830-3BB0-5DB7FD7E4B58}|App.UI\\App.UI.csproj|d:\\indev\\store\\app.ui\\main.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{91186705-6DD3-E830-3BB0-5DB7FD7E4B58}|App.UI\\App.UI.csproj|solutionrelative:app.ui\\main.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FDD10DAC-E2F8-32EE-74F5-DAD693B0BB9A}|App.Database\\App.Database.csproj|d:\\indev\\store\\app.database\\models.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FDD10DAC-E2F8-32EE-74F5-DAD693B0BB9A}|App.Database\\App.Database.csproj|solutionrelative:app.database\\models.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DA71A78-A28F-8F84-EF7E-17686113D26D}|App.API\\App.API.csproj|d:\\indev\\store\\app.api\\api.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9DA71A78-A28F-8F84-EF7E-17686113D26D}|App.API\\App.API.csproj|solutionrelative:app.api\\api.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FDD10DAC-E2F8-32EE-74F5-DAD693B0BB9A}|App.Database\\App.Database.csproj|d:\\indev\\store\\app.database\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FDD10DAC-E2F8-32EE-74F5-DAD693B0BB9A}|App.Database\\App.Database.csproj|solutionrelative:app.database\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{91186705-6DD3-E830-3BB0-5DB7FD7E4B58}|App.UI\\App.UI.csproj|d:\\indev\\store\\app.ui\\app.ui.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{91186705-6DD3-E830-3BB0-5DB7FD7E4B58}|App.UI\\App.UI.csproj|solutionrelative:app.ui\\app.ui.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FDD10DAC-E2F8-32EE-74F5-DAD693B0BB9A}|App.Database\\App.Database.csproj|d:\\indev\\store\\app.database\\products.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FDD10DAC-E2F8-32EE-74F5-DAD693B0BB9A}|App.Database\\App.Database.csproj|solutionrelative:app.database\\products.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DA71A78-A28F-8F84-EF7E-17686113D26D}|App.API\\App.API.csproj|d:\\indev\\store\\app.api\\schema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9DA71A78-A28F-8F84-EF7E-17686113D26D}|App.API\\App.API.csproj|solutionrelative:app.api\\schema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DA71A78-A28F-8F84-EF7E-17686113D26D}|App.API\\App.API.csproj|d:\\indev\\store\\app.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9DA71A78-A28F-8F84-EF7E-17686113D26D}|App.API\\App.API.csproj|solutionrelative:app.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FDD10DAC-E2F8-32EE-74F5-DAD693B0BB9A}|App.Database\\App.Database.csproj|d:\\indev\\store\\app.database\\orders.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FDD10DAC-E2F8-32EE-74F5-DAD693B0BB9A}|App.Database\\App.Database.csproj|solutionrelative:app.database\\orders.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FDD10DAC-E2F8-32EE-74F5-DAD693B0BB9A}|App.Database\\App.Database.csproj|d:\\indev\\store\\app.database\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FDD10DAC-E2F8-32EE-74F5-DAD693B0BB9A}|App.Database\\App.Database.csproj|solutionrelative:app.database\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FDD10DAC-E2F8-32EE-74F5-DAD693B0BB9A}|App.Database\\App.Database.csproj|d:\\indev\\store\\app.database\\categories.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FDD10DAC-E2F8-32EE-74F5-DAD693B0BB9A}|App.Database\\App.Database.csproj|solutionrelative:app.database\\categories.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{91186705-6DD3-E830-3BB0-5DB7FD7E4B58}|App.UI\\App.UI.csproj|d:\\indev\\store\\app.ui\\login.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{91186705-6DD3-E830-3BB0-5DB7FD7E4B58}|App.UI\\App.UI.csproj|solutionrelative:app.ui\\login.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 281,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Main.xaml.cs",
+              "DocumentMoniker": "D:\\Indev\\Store\\App.UI\\Main.xaml.cs",
+              "RelativeDocumentMoniker": "App.UI\\Main.xaml.cs",
+              "ToolTip": "D:\\Indev\\Store\\App.UI\\Main.xaml.cs",
+              "RelativeToolTip": "App.UI\\Main.xaml.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAACIAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-14T11:22:26.939Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "API.cs",
+              "DocumentMoniker": "D:\\Indev\\Store\\App.API\\API.cs",
+              "RelativeDocumentMoniker": "App.API\\API.cs",
+              "ToolTip": "D:\\Indev\\Store\\App.API\\API.cs",
+              "RelativeToolTip": "App.API\\API.cs",
+              "ViewState": "AgIAAGcAAAAAAAAAAAAAADAAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-15T10:16:56.758Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Admin.xaml",
+              "DocumentMoniker": "D:\\Indev\\Store\\App.UI\\Admin.xaml",
+              "RelativeDocumentMoniker": "App.UI\\Admin.xaml",
+              "ToolTip": "D:\\Indev\\Store\\App.UI\\Admin.xaml",
+              "RelativeToolTip": "App.UI\\Admin.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-06-14T11:24:48.493Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Cart.xaml.cs",
+              "DocumentMoniker": "D:\\Indev\\Store\\App.UI\\Cart.xaml.cs",
+              "RelativeDocumentMoniker": "App.UI\\Cart.xaml.cs",
+              "ToolTip": "D:\\Indev\\Store\\App.UI\\Cart.xaml.cs",
+              "RelativeToolTip": "App.UI\\Cart.xaml.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAkwCAAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-15T08:44:23.33Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Admin.xaml.cs",
+              "DocumentMoniker": "D:\\Indev\\Store\\App.UI\\Admin.xaml.cs",
+              "RelativeDocumentMoniker": "App.UI\\Admin.xaml.cs",
+              "ToolTip": "D:\\Indev\\Store\\App.UI\\Admin.xaml.cs",
+              "RelativeToolTip": "App.UI\\Admin.xaml.cs",
+              "ViewState": "AgIAAIcAAAAAAAAAAAAawJgAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-14T11:25:01.616Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Cart.xaml",
+              "DocumentMoniker": "D:\\Indev\\Store\\App.UI\\Cart.xaml",
+              "RelativeDocumentMoniker": "App.UI\\Cart.xaml",
+              "ToolTip": "D:\\Indev\\Store\\App.UI\\Cart.xaml",
+              "RelativeToolTip": "App.UI\\Cart.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-06-18T08:46:52.471Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Main.xaml",
+              "DocumentMoniker": "D:\\Indev\\Store\\App.UI\\Main.xaml",
+              "RelativeDocumentMoniker": "App.UI\\Main.xaml",
+              "ToolTip": "D:\\Indev\\Store\\App.UI\\Main.xaml",
+              "RelativeToolTip": "App.UI\\Main.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-06-15T08:19:39.091Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Schema.cs",
+              "DocumentMoniker": "D:\\Indev\\Store\\App.API\\Schema.cs",
+              "RelativeDocumentMoniker": "App.API\\Schema.cs",
+              "ToolTip": "D:\\Indev\\Store\\App.API\\Schema.cs",
+              "RelativeToolTip": "App.API\\Schema.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-15T10:17:48.334Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Models.cs",
+              "DocumentMoniker": "D:\\Indev\\Store\\App.Database\\Models.cs",
+              "RelativeDocumentMoniker": "App.Database\\Models.cs",
+              "ToolTip": "D:\\Indev\\Store\\App.Database\\Models.cs",
+              "RelativeToolTip": "App.Database\\Models.cs",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-15T10:17:30.328Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Database.cs",
+              "DocumentMoniker": "D:\\Indev\\Store\\App.Database\\Database.cs",
+              "RelativeDocumentMoniker": "App.Database\\Database.cs",
+              "ToolTip": "D:\\Indev\\Store\\App.Database\\Database.cs",
+              "RelativeToolTip": "App.Database\\Database.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAAAADIAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-15T08:04:59.442Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "App.UI.csproj",
+              "DocumentMoniker": "D:\\Indev\\Store\\App.UI\\App.UI.csproj",
+              "RelativeDocumentMoniker": "App.UI\\App.UI.csproj",
+              "ToolTip": "D:\\Indev\\Store\\App.UI\\App.UI.csproj",
+              "RelativeToolTip": "App.UI\\App.UI.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-06-17T11:00:52.222Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Products.cs",
+              "DocumentMoniker": "D:\\Indev\\Store\\App.Database\\Products.cs",
+              "RelativeDocumentMoniker": "App.Database\\Products.cs",
+              "ToolTip": "D:\\Indev\\Store\\App.Database\\Products.cs",
+              "RelativeToolTip": "App.Database\\Products.cs",
+              "ViewState": "AgIAAIkAAAAAAAAAAAAawJ0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-15T08:12:10.505Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Login.xaml.cs",
+              "DocumentMoniker": "D:\\Indev\\Store\\App.UI\\Login.xaml.cs",
+              "RelativeDocumentMoniker": "App.UI\\Login.xaml.cs",
+              "ToolTip": "D:\\Indev\\Store\\App.UI\\Login.xaml.cs",
+              "RelativeToolTip": "App.UI\\Login.xaml.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAowBwAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-14T14:38:18.015Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Users.cs",
+              "DocumentMoniker": "D:\\Indev\\Store\\App.Database\\Users.cs",
+              "RelativeDocumentMoniker": "App.Database\\Users.cs",
+              "ToolTip": "D:\\Indev\\Store\\App.Database\\Users.cs",
+              "RelativeToolTip": "App.Database\\Users.cs",
+              "ViewState": "AgIAAKgAAAAAAAAAAAAAAKgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-14T15:17:51.312Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Indev\\Store\\App.API\\Program.cs",
+              "RelativeDocumentMoniker": "App.API\\Program.cs",
+              "ToolTip": "D:\\Indev\\Store\\App.API\\Program.cs",
+              "RelativeToolTip": "App.API\\Program.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAA0wC8AAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-15T08:06:27.583Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Orders.cs",
+              "DocumentMoniker": "D:\\Indev\\Store\\App.Database\\Orders.cs",
+              "RelativeDocumentMoniker": "App.Database\\Orders.cs",
+              "ToolTip": "D:\\Indev\\Store\\App.Database\\Orders.cs",
+              "RelativeToolTip": "App.Database\\Orders.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAkwBwAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-15T08:10:19.617Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Categories.cs",
+              "DocumentMoniker": "D:\\Indev\\Store\\App.Database\\Categories.cs",
+              "RelativeDocumentMoniker": "App.Database\\Categories.cs",
+              "ToolTip": "D:\\Indev\\Store\\App.Database\\Categories.cs",
+              "RelativeToolTip": "App.Database\\Categories.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAA0wCgAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-15T08:09:11.191Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

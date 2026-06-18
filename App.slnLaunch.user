@@ -1,0 +1,16 @@
+[
+  {
+    "Name": "Новый профиль",
+    "Projects": [
+      {
+        "Path": "App.API\\App.API.csproj",
+        "Action": "Start",
+        "DebugTarget": "https"
+      },
+      {
+        "Path": "App.UI\\App.UI.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

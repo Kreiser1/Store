@@ -20,8 +20,7 @@ using Microsoft.VisualBasic;
 namespace App.UI;
 
 public record Product : ProductResponse {
-
-	public Product(int Id, string Name, int Count, int Price, string? Unit, byte[]? Image, string? Description, string? Manufacturer, string? Provider, float? Discount, CategoryResponse[]? Categories) : base(Id, Name, Count, Price, Unit, Image ?? Catalogue.Placeholder, Description, Manufacturer, Provider, Discount, Categories) { }
+	public Product(int Id, string Name, int Count, int Price, string? Unit, byte[]? Image, string? Description, string? Manufacturer, string? Provider, float? Discount, CategoryResponse[]? Categories) : base(Id, Name, Count, Price, Unit, Image, Description, Manufacturer, Provider, Discount, Categories) {}
 
 	public virtual bool Equals(Product? other) => other is not null && Id == other.Id;
 
@@ -35,7 +34,7 @@ public record Order : OrderResponse {
 		get {
 			int cost = 0;
 			foreach (var product in Products)
-				cost += product.Count * product.Price;
+				cost += product.Count * (product.Discount is not null ? (int)MathF.Round(product.Price - product.Price * (product.Discount.Value / 100f)) : product.Price);
 			return cost;
 		}
 	}
@@ -300,5 +299,13 @@ public partial class Main : Window {
 
 		Array.Sort(Catalogue.Products, (x, y) => (sortMode ? x.Count.CompareTo(y.Count) : y.Count.CompareTo(x.Count)));
 		CatalogueListBox.ItemsSource = Catalogue.Products.ToArray();
+	}
+
+	private async void Button_Click(object sender, RoutedEventArgs e) {
+		if (sender is Button button && button.DataContext is Order order) {
+			var cart = new Cart(order.Products.Select(product => new Product(product.Id, product.Name, product.Count, product.Price, product.Unit, product.Image, product.Description, product.Manufacturer, product.Provider, product.Discount, product.Categories)).ToArray());
+			cart.ShowInTaskbar = true;
+			cart.Show();
+		}
 	}
 }

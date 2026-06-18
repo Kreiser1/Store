@@ -28,12 +28,21 @@
 				CartListBox.ItemsSource = products;
 				ClearButton.IsEnabled = false;
 				OrderButton.IsEnabled = false;
+
+				int cost = 0;
+				foreach (var product in products)
+					cost += product.Count * (product.Discount is not null ? (int)MathF.Round(product.Price - product.Price * (product.Discount.Value / 100f)) : product.Price);
+				CostTextBox.Text = $"{cost} руб.";
 			} else
 				Update();
 		}
 
 		public void Update() {
 			CartListBox.ItemsSource = Products.ToArray();
+			int cost = 0;
+			foreach (var product in Products)
+				cost += product.Count * (product.Discount is not null ? (int)MathF.Round(product.Price - product.Price * (product.Discount.Value / 100f)) : product.Price);
+			CostTextBox.Text = $"{cost} руб.";
 		}
 
 		private async void OrderButton_Click(object sender, RoutedEventArgs e) {

@@ -215,7 +215,7 @@ internal static class API {
 
 					return _product is null
 						? new ProductResponse(int.MinValue, "...", 0, 0, null, null, null, null, null, null, null)
-						: new ProductResponse(product.Id, _product.Name, _product.Count, _product.Price, _product.Unit, _product.Image,
+						: new ProductResponse(product.Id, _product.Name, product.Count, _product.Price, _product.Unit, _product.Image,
 					_product.Description, _product.Manufacturer, _product.Provider, _product.Discount,
 					Products.GetCategories(product.Id).Select(category => new CategoryResponse(category.Id, category.Name)).ToArray());
 				}).ToArray())).ToArray(), statusCode: 201);
@@ -235,7 +235,7 @@ internal static class API {
 
 					return _product is null
 						? new ProductResponse(int.MinValue, "...", 0, 0, null, null, null, null, null, null, null)
-						: new ProductResponse(product.Id, _product.Name, _product.Count, _product.Price, _product.Unit, _product.Image,
+						: new ProductResponse(product.Id, _product.Name, product.Count, _product.Price, _product.Unit, _product.Image,
 					_product.Description, _product.Manufacturer, _product.Provider, _product.Discount,
 					Products.GetCategories(product.Id).Select(category => new CategoryResponse(category.Id, category.Name)).ToArray());
 				}).ToArray())).ToArray(), statusCode: 201);
@@ -259,7 +259,7 @@ internal static class API {
 
 						return _product is null
 							? new ProductResponse(int.MinValue, "...", 0, 0, null, null, null, null, null, null, null)
-							: new ProductResponse(product.Id, _product.Name, _product.Count, _product.Price, _product.Unit, _product.Image,
+							: new ProductResponse(product.Id, _product.Name, product.Count, _product.Price, _product.Unit, _product.Image,
 						_product.Description, _product.Manufacturer, _product.Provider, _product.Discount,
 						Products.GetCategories(product.Id).Select(category => new CategoryResponse(category.Id, category.Name)).ToArray());
 					}).ToArray()), statusCode: 201);

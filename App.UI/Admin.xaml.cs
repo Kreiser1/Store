@@ -148,5 +148,13 @@
 			CatalogueListBox.ItemsSource = await Catalogue.load();
 			await load();
 		}
+
+		private async void Button_Click_4(object sender, RoutedEventArgs e) {
+			if (sender is Button button && button.DataContext is Order order) {
+				var cart = new Cart(order.Products.Select(product => new Product(product.Id, product.Name, product.Count, product.Price, product.Unit, product.Image, product.Description, product.Manufacturer, product.Provider, product.Discount, product.Categories)).ToArray());
+				cart.ShowInTaskbar = true;
+				cart.Show();
+			}
+		}
 	}
 }

@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "dgSpecHash": "5VidUwHkulw=",
+  "success": true,
+  "projectFilePath": "D:\\Indev\\Store\\App.Database\\App.Database.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Kreiser\\.nuget\\packages\\bcrypt.net-next\\4.2.0\\bcrypt.net-next.4.2.0.nupkg.sha512",
+    "C:\\Users\\Kreiser\\.nuget\\packages\\dapper\\2.1.79\\dapper.2.1.79.nupkg.sha512",
+    "C:\\Users\\Kreiser\\.nuget\\packages\\dapper.fluentmap\\2.0.0\\dapper.fluentmap.2.0.0.nupkg.sha512",
+    "C:\\Users\\Kreiser\\.nuget\\packages\\microsoft.extensions.configuration\\10.0.8\\microsoft.extensions.configuration.10.0.8.nupkg.sha512",
+    "C:\\Users\\Kreiser\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\10.0.8\\microsoft.extensions.configuration.abstractions.10.0.8.nupkg.sha512",
+    "C:\\Users\\Kreiser\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\10.0.0\\microsoft.extensions.dependencyinjection.abstractions.10.0.0.nupkg.sha512",
+    "C:\\Users\\Kreiser\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\10.0.0\\microsoft.extensions.logging.abstractions.10.0.0.nupkg.sha512",
+    "C:\\Users\\Kreiser\\.nuget\\packages\\microsoft.extensions.primitives\\10.0.8\\microsoft.extensions.primitives.10.0.8.nupkg.sha512",
+    "C:\\Users\\Kreiser\\.nuget\\packages\\npgsql\\10.0.3\\npgsql.10.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
